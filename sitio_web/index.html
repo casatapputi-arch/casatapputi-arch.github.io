@@ -217,8 +217,12 @@
       color: var(--verde-medio); font-family: sans-serif;
     }
     .caracol-section { background: var(--arena); border-radius: 12px; padding: 40px; }
-    .caracol-title { font-size: 1.2rem; color: var(--verde-oscuro); margin-bottom: 8px; }
-    .caracol-intro { font-family: sans-serif; font-size: 0.92rem; color: var(--gris-suave); margin-bottom: 28px; max-width: 560px; font-style: italic; }
+    .caracol-intro { font-family: sans-serif; font-size: 0.92rem; color: var(--gris-suave); margin-bottom: 28px; max-width: 640px; font-style: italic; }
+    .dimension-tag {
+      font-style: normal; font-weight: bold; color: var(--verde-oscuro);
+      background: rgba(168,197,160,0.25); padding: 1px 7px;
+      border-radius: 4px; white-space: nowrap;
+    }
     .caracol-circulos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
     .circulo {
       padding: 20px 16px; text-align: center; position: relative;
@@ -580,8 +584,7 @@
 
     <!-- EL CARACOL -->
     <div class="caracol-section">
-      <h3 class="caracol-title">Nuestra estructura</h3>
-      <p class="caracol-intro">Fundación E.B.A.C. articula su trabajo en cuatro dimensiones complementarias: identidad, vínculos, acción y participación. Cada una sustenta a las demás y da coherencia a nuestro quehacer institucional.</p>
+      <p class="caracol-intro">Fundación E.B.A.C. articula su trabajo en cuatro dimensiones complementarias: <span class="dimension-tag">identidad</span>, <span class="dimension-tag">vínculos</span>, <span class="dimension-tag">acción</span> y <span class="dimension-tag">participación</span>. Cada una sustenta a las demás y da coherencia a nuestro quehacer institucional.</p>
       <div class="caracol-circulos">
         <div class="circulo">
           <div class="circulo-num">SER</div>
@@ -589,7 +592,7 @@
           <div class="circulo-pregunta">¿Qué es Fundación E.B.A.C.?</div>
         </div>
         <div class="circulo">
-          <div class="circulo-num">ESTRUCTURA</div>
+          <div class="circulo-num">VÍNCULOS</div>
           <div class="circulo-label">Cómo nos relacionamos</div>
           <div class="circulo-pregunta">¿Cómo se articula la Fundación?</div>
         </div>
@@ -823,12 +826,6 @@
         </div>
       </div>
       <div class="hrv-visual-side">
-        <!-- PENDIENTE: reemplazar con fotos reales del Huerto Roma Verde -->
-        <div class="hrv-photo-placeholder">
-          <span>🌱</span>
-          Galería fotográfica del Huerto Roma Verde<br>
-          <em>(Imágenes próximamente)</em>
-        </div>
         <div class="hrv-quote">
           <p>En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
         </div>
@@ -871,7 +868,6 @@
         </div>
       </div>
       <div>
-        <!-- PENDIENTE: añadir ejemplos concretos de la Primera Etapa (programas, número de participantes, instituciones) -->
         <div style="background: var(--verde-oscuro); color: var(--arena); border-radius: 10px; padding: 32px; margin-bottom: 20px;">
           <h3 style="color: var(--verde-claro); font-size: 1rem; margin-bottom: 16px; letter-spacing: 0.04em;">Actividades documentadas · Primera Etapa</h3>
           <ul style="list-style: none; font-family: sans-serif; font-size: 0.88rem; color: rgba(245,240,232,0.85);">
