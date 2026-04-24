@@ -173,39 +173,12 @@
       padding: 16px 20px; background: white; border-radius: 0 8px 8px 0;
       box-shadow: 0 2px 10px var(--sombra); margin-bottom: 20px; line-height: 1.7;
     }
-    /* --- Valores en anillo orbital --- */
-    .valores-ring {
-      position: relative; width: min(100%, 400px); min-height: 400px; margin: 0 auto;
-    }
-    .valores-centro {
-      position: absolute; left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      width: 92px; height: 92px; border-radius: 50%;
-      background: var(--verde-oscuro);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 2; box-shadow: 0 2px 12px var(--sombra);
-    }
-    .valores-centro span {
-      color: white; font-size: 0.62rem; font-weight: bold;
-      text-align: center; font-family: sans-serif;
-      letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; padding: 0 8px;
-    }
-    .valor-item {
-      background: white; border-radius: 8px; padding: 14px 12px;
-      box-shadow: 0 1px 8px var(--sombra); border-top: 3px solid var(--verde-claro);
-      text-align: center;
-    }
-    .valores-ring .valor-item {
-      position: absolute; width: 108px; transform: translate(-50%, -50%);
-    }
-    .valores-ring .valor-item:nth-child(2) { left: 50%; top: calc(50% - 148px); }
-    .valores-ring .valor-item:nth-child(3) { left: calc(50% + 128px); top: calc(50% - 74px); }
-    .valores-ring .valor-item:nth-child(4) { left: calc(50% + 128px); top: calc(50% + 74px); }
-    .valores-ring .valor-item:nth-child(5) { left: 50%; top: calc(50% + 148px); }
-    .valores-ring .valor-item:nth-child(6) { left: calc(50% - 128px); top: calc(50% + 74px); }
-    .valores-ring .valor-item:nth-child(7) { left: calc(50% - 128px); top: calc(50% - 74px); }
-    .valor-item h4 { font-size: 0.82rem; color: var(--verde-oscuro); margin-bottom: 4px; }
-    .valor-item p { font-family: sans-serif; font-size: 0.76rem; color: var(--gris-suave); margin: 0; line-height: 1.45; }
+    /* --- Valores SVG donut --- */
+    .valores-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-top: 20px; }
+    .vleg-item { display: flex; gap: 10px; align-items: flex-start; }
+    .vleg-dot { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+    .vleg-item strong { font-size: 0.9rem; color: var(--verde-oscuro); display: block; margin-bottom: 2px; font-family: sans-serif; }
+    .vleg-item p { font-family: sans-serif; font-size: 0.82rem; color: var(--gris-suave); margin: 0; line-height: 1.5; }
 
     /* ===================== ENTIDADES ===================== */
     .entities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
@@ -277,20 +250,7 @@
       text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--verde-claro); margin-bottom: 16px;
     }
-    /* Anillo orbital para los 4 features del HRV */
-    .hrv-features-ring {
-      position: relative; width: 240px; height: 240px; margin: 0 auto 16px;
-    }
-    .hrv-features-ring .hrv-feat {
-      position: absolute; width: 94px; transform: translate(-50%, -50%);
-      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 8px;
-      border-left: none; border-top: 2px solid rgba(168,197,160,0.6);
-      text-align: center;
-    }
-    .hrv-features-ring .hrv-feat:nth-child(1) { left: 50%; top: 0%; }
-    .hrv-features-ring .hrv-feat:nth-child(2) { left: 100%; top: 50%; }
-    .hrv-features-ring .hrv-feat:nth-child(3) { left: 50%; top: 100%; }
-    .hrv-features-ring .hrv-feat:nth-child(4) { left: 0%; top: 50%; }
+    /* HRV ejes de acción: SVG donut 4 segmentos */
     .caracol-circulos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
     .circulo {
       padding: 20px 16px; text-align: center; position: relative;
@@ -458,8 +418,7 @@
       .contacto-grid, .footer-inner, .quienes-grid { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
       .hrv-features, .hrv-dos-circulos, .trabajan-ramas { grid-template-columns: 1fr; }
-      .valores-ring { min-height: auto; }
-      .valores-ring .valor-item { position: static; width: auto; transform: none; margin-bottom: 8px; }
+      .valores-legend { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .section { padding: 56px 0; }
       .hero-flow { flex-direction: column; }
@@ -572,31 +531,72 @@
       </div>
       <div>
         <h3 style="font-size: 1.1rem; margin-bottom: 24px; color: var(--verde-oscuro);">Valores institucionales</h3>
-        <div class="valores-ring">
-          <div class="valores-centro"><span>Valores<br>E.B.A.C.</span></div>
-          <div class="valor-item">
-            <h4>Humanismo</h4>
-            <p>El centro de toda acción es la persona. Sin excepción, sin jerarquías de mérito.</p>
+        <!-- Valores: SVG donut de 6 segmentos iguales (60° cada uno) -->
+        <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;margin:0 auto 4px;" role="img" aria-label="Seis valores institucionales de la Fundación E.B.A.C.">
+          <!-- Seg 0 Humanismo: -90° → -30° -->
+          <path d="M 220,50 A 170,170 0 0,1 367.2,135 L 297.9,175 A 90,90 0 0,0 220,130 Z" fill="#2C5F2E"/>
+          <!-- Seg 1 Integración: -30° → 30° -->
+          <path d="M 367.2,135 A 170,170 0 0,1 367.2,305 L 297.9,265 A 90,90 0 0,0 297.9,175 Z" fill="#4A7C59"/>
+          <!-- Seg 2 Compromiso ético: 30° → 90° -->
+          <path d="M 367.2,305 A 170,170 0 0,1 220,390 L 220,310 A 90,90 0 0,0 297.9,265 Z" fill="#6B8A70"/>
+          <!-- Seg 3 Transparencia: 90° → 150° -->
+          <path d="M 220,390 A 170,170 0 0,1 72.8,305 L 142.1,265 A 90,90 0 0,0 220,310 Z" fill="#8B5E3C"/>
+          <!-- Seg 4 Creatividad: 150° → 210° -->
+          <path d="M 72.8,305 A 170,170 0 0,1 72.8,135 L 142.1,175 A 90,90 0 0,0 142.1,265 Z" fill="#B07845"/>
+          <!-- Seg 5 Dignidad: 210° → 270° -->
+          <path d="M 72.8,135 A 170,170 0 0,1 220,50 L 220,130 A 90,90 0 0,0 142.1,175 Z" fill="#5C8C6A"/>
+          <!-- Separadores entre gajos -->
+          <line x1="220" y1="220" x2="220" y2="50" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="220" y1="220" x2="367.2" y2="135" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="220" y1="220" x2="367.2" y2="305" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="220" y1="220" x2="220" y2="390" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="220" y1="220" x2="72.8" y2="305" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="220" y1="220" x2="72.8" y2="135" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <!-- Centro -->
+          <circle cx="220" cy="220" r="88" fill="white" stroke="var(--borde)" stroke-width="1"/>
+          <text x="220" y="212" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#2C5F2E">Valores</text>
+          <text x="220" y="233" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#2C5F2E">E.B.A.C.</text>
+          <!-- Etiquetas en los gajos -->
+          <!-- Seg 0: Humanismo — mid -60°, pos (285, 107) -->
+          <text x="285" y="101" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Humanismo</text>
+          <!-- Seg 1: Integración — mid 0°, pos (350, 220) -->
+          <text x="350" y="214" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Integración</text>
+          <!-- Seg 2: Compromiso ético — mid 60°, pos (285, 333) -->
+          <text x="285" y="323" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Compromiso</text>
+          <text x="285" y="340" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">ético</text>
+          <!-- Seg 3: Transparencia — mid 120°, pos (155, 333) -->
+          <text x="155" y="327" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Transpa-</text>
+          <text x="155" y="344" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">rencia</text>
+          <!-- Seg 4: Creatividad — mid 180°, pos (90, 220) -->
+          <text x="90" y="214" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Creatividad</text>
+          <!-- Seg 5: Dignidad — mid 240°, pos (155, 107) -->
+          <text x="155" y="101" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Dignidad</text>
+        </svg>
+        <!-- Leyenda descriptiva debajo del donut -->
+        <div class="valores-legend">
+          <div class="vleg-item">
+            <div class="vleg-dot" style="background:#2C5F2E;"></div>
+            <div><strong>Humanismo</strong><p>El centro de toda acción es la persona. Sin excepción, sin jerarquías de mérito.</p></div>
           </div>
-          <div class="valor-item">
-            <h4>Integración</h4>
-            <p>Cada interacción es una oportunidad de hacer visibles las necesidades de todos.</p>
+          <div class="vleg-item">
+            <div class="vleg-dot" style="background:#4A7C59;"></div>
+            <div><strong>Integración</strong><p>Cada interacción es una oportunidad de hacer visibles las necesidades de todos.</p></div>
           </div>
-          <div class="valor-item">
-            <h4>Compromiso ético</h4>
-            <p>El manejo de recursos y la comunicación son responsabilidades que no se delegan.</p>
+          <div class="vleg-item">
+            <div class="vleg-dot" style="background:#6B8A70;"></div>
+            <div><strong>Compromiso ético</strong><p>El manejo de recursos y la comunicación son responsabilidades que no se delegan.</p></div>
           </div>
-          <div class="valor-item">
-            <h4>Transparencia</h4>
-            <p>Las cuentas se rinden. Las actividades se documentan. Los resultados se muestran.</p>
+          <div class="vleg-item">
+            <div class="vleg-dot" style="background:#8B5E3C;"></div>
+            <div><strong>Transparencia</strong><p>Las cuentas se rinden. Las actividades se documentan. Los resultados se muestran.</p></div>
           </div>
-          <div class="valor-item">
-            <h4>Creatividad</h4>
-            <p>La imaginación aplicada al bien común es una herramienta institucional, no un adorno.</p>
+          <div class="vleg-item">
+            <div class="vleg-dot" style="background:#B07845;"></div>
+            <div><strong>Creatividad</strong><p>La imaginación aplicada al bien común es una herramienta institucional, no un adorno.</p></div>
           </div>
-          <div class="valor-item">
-            <h4>Dignidad</h4>
-            <p>Ayudar no es asistir pasivamente. Es acompañar con respeto a quien es más que sus circunstancias.</p>
+          <div class="vleg-item">
+            <div class="vleg-dot" style="background:#5C8C6A;"></div>
+            <div><strong>Dignidad</strong><p>Ayudar no es asistir pasivamente. Es acompañar con respeto a quien es más que sus circunstancias.</p></div>
           </div>
         </div>
       </div>
@@ -884,12 +884,47 @@
       <!-- Círculo 1: los cuatro ejes de acción de HRV -->
       <div class="hrv-circulo-wrap">
         <div class="hrv-circulo-titulo">Ejes de acción</div>
-        <div class="hrv-features-ring">
-          <div class="hrv-feat"><div class="hrv-feat-icon">🌿</div><h4>Producción</h4><p>Agricultura urbana activa con trazabilidad y prácticas responsables</p></div>
-          <div class="hrv-feat"><div class="hrv-feat-icon">📖</div><h4>Formación</h4><p>Capacitación para estudiantes y microempresarios</p></div>
-          <div class="hrv-feat"><div class="hrv-feat-icon">🤝</div><h4>Comunidad</h4><p>Nodo de encuentro entre actores del ecosistema local</p></div>
-          <div class="hrv-feat"><div class="hrv-feat-icon">🗺️</div><h4>Referencia</h4><p>Modelo replicable sin perder autenticidad</p></div>
-        </div>
+        <!-- Ejes HRV: SVG donut de 4 segmentos (90° cada uno) -->
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;display:block;margin:0 auto 16px;" role="img" aria-label="Cuatro ejes de acción de Huerto Roma Verde">
+          <!-- Seg 0: Producción — cuadrante superior derecho (-90° a 0°) -->
+          <path d="M 200,45 A 155,155 0 0,1 355,200 L 278,200 A 78,78 0 0,0 200,122 Z" fill="#2C5F2E"/>
+          <!-- Seg 1: Formación — cuadrante inferior derecho (0° a 90°) -->
+          <path d="M 355,200 A 155,155 0 0,1 200,355 L 200,278 A 78,78 0 0,0 278,200 Z" fill="#4A7C59"/>
+          <!-- Seg 2: Comunidad — cuadrante inferior izquierdo (90° a 180°) -->
+          <path d="M 200,355 A 155,155 0 0,1 45,200 L 122,200 A 78,78 0 0,0 200,278 Z" fill="#8B5E3C"/>
+          <!-- Seg 3: Referencia — cuadrante superior izquierdo (180° a 270°) -->
+          <path d="M 45,200 A 155,155 0 0,1 200,45 L 200,122 A 78,78 0 0,0 122,200 Z" fill="#5C8C6A"/>
+          <!-- Separadores -->
+          <line x1="200" y1="200" x2="200" y2="45" stroke="white" stroke-width="2" opacity="0.5"/>
+          <line x1="200" y1="200" x2="355" y2="200" stroke="white" stroke-width="2" opacity="0.5"/>
+          <line x1="200" y1="200" x2="200" y2="355" stroke="white" stroke-width="2" opacity="0.5"/>
+          <line x1="200" y1="200" x2="45" y2="200" stroke="white" stroke-width="2" opacity="0.5"/>
+          <!-- Centro -->
+          <circle cx="200" cy="200" r="76" fill="#1a3d1c"/>
+          <text x="200" y="195" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#A8C5A0" letter-spacing="0.12em">HUERTO</text>
+          <text x="200" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#A8C5A0" letter-spacing="0.12em">ROMA VERDE</text>
+          <!-- Etiquetas en los gajos: ícono + nombre + descripción -->
+          <!-- Seg 0: Producción — cuadrante sup-der, mid -45°, pos (282, 118) -->
+          <text x="282" y="96" text-anchor="middle" font-size="18" fill="white">🌿</text>
+          <text x="282" y="118" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Producción</text>
+          <text x="282" y="136" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Agroecología</text>
+          <text x="282" y="149" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">urbana activa</text>
+          <!-- Seg 1: Formación — cuadrante inf-der, mid 45°, pos (282, 282) -->
+          <text x="282" y="252" text-anchor="middle" font-size="18" fill="white">📖</text>
+          <text x="282" y="274" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Formación</text>
+          <text x="282" y="291" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Capacitación para</text>
+          <text x="282" y="304" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">micro-empresarios</text>
+          <!-- Seg 2: Comunidad — cuadrante inf-izq, mid 135°, pos (118, 282) -->
+          <text x="118" y="252" text-anchor="middle" font-size="18" fill="white">🤝</text>
+          <text x="118" y="274" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Comunidad</text>
+          <text x="118" y="291" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Nodo de encuentro</text>
+          <text x="118" y="304" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">del ecosistema local</text>
+          <!-- Seg 3: Referencia — cuadrante sup-izq, mid 225°, pos (118, 118) -->
+          <text x="118" y="96" text-anchor="middle" font-size="18" fill="white">🗺️</text>
+          <text x="118" y="118" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Referencia</text>
+          <text x="118" y="136" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Modelo replicable</text>
+          <text x="118" y="149" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">sin perder identidad</text>
+        </svg>
         <div class="hrv-quote" style="text-align: left;">
           <p style="font-size: 0.92rem;">En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
         </div>
@@ -1148,7 +1183,7 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll(
-    '.entity-card, .modalidad-card, .timeline-item, .flow-actor, .relacion-card, .valor-item, .circulo'
+    '.entity-card, .modalidad-card, .timeline-item, .flow-actor, .relacion-card, .vleg-item, .circulo'
   ).forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
