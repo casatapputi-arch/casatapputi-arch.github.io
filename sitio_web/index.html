@@ -214,6 +214,13 @@
     }
     .relacion-pertenecen { border-top: 4px solid var(--tierra); max-width: 380px; }
     .relacion-pertenecen::before { background: var(--tierra); }
+    /* Cabeza de "Pertenecen" — misma jerarquía visual que "Trabajan" */
+    .pertenecen-cabeza {
+      text-align: center; font-family: 'Georgia', serif;
+      font-size: 1.7rem; font-weight: bold; color: var(--tierra);
+      padding-bottom: 16px; border-bottom: 2px solid var(--borde);
+      margin-bottom: 16px; letter-spacing: 0.02em;
+    }
     .relacion-prep {
       font-family: sans-serif; font-size: 0.72rem; font-weight: bold;
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -556,21 +563,20 @@
           <circle cx="220" cy="220" r="88" fill="white" stroke="var(--borde)" stroke-width="1"/>
           <text x="220" y="212" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#2C5F2E">Valores</text>
           <text x="220" y="233" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#2C5F2E">E.B.A.C.</text>
-          <!-- Etiquetas en los gajos -->
+          <!-- Etiquetas en los gajos — 15px bold, una sola línea -->
           <!-- Seg 0: Humanismo — mid -60°, pos (285, 107) -->
-          <text x="285" y="101" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Humanismo</text>
+          <text x="285" y="107" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="white">Humanismo</text>
           <!-- Seg 1: Integración — mid 0°, pos (350, 220) -->
-          <text x="350" y="214" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Integración</text>
+          <text x="350" y="220" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="white">Integración</text>
           <!-- Seg 2: Compromiso ético — mid 60°, pos (285, 333) -->
-          <text x="285" y="323" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Compromiso</text>
-          <text x="285" y="340" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">ético</text>
-          <!-- Seg 3: Transparencia — mid 120°, pos (155, 333) -->
-          <text x="155" y="327" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Transpa-</text>
-          <text x="155" y="344" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">rencia</text>
+          <text x="285" y="326" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Compromiso</text>
+          <text x="285" y="344" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">ético</text>
+          <!-- Seg 3: Transparencia — mid 120°, pos (155, 333) — una sola línea -->
+          <text x="155" y="333" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Transparencia</text>
           <!-- Seg 4: Creatividad — mid 180°, pos (90, 220) -->
-          <text x="90" y="214" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">Creatividad</text>
+          <text x="90" y="220" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="white">Creatividad</text>
           <!-- Seg 5: Dignidad — mid 240°, pos (155, 107) -->
-          <text x="155" y="101" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Dignidad</text>
+          <text x="155" y="107" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="white">Dignidad</text>
         </svg>
         <!-- Leyenda descriptiva debajo del donut -->
         <div class="valores-legend">
@@ -652,10 +658,12 @@
       </div>
     </div>
     <!-- "Pertenecen a" como categoría distinta — los beneficiarios, fin último -->
-    <div class="relacion-card relacion-pertenecen">
-      <div class="relacion-prep">Pertenecen</div>
-      <h3>a la Fundación</h3>
-      <p>Los beneficiarios directos: becarios, estudiantes en servicio social, prácticas profesionales o estadías, y toda persona atendida por los programas de E.B.A.C. Son el fin último para el que la institución existe.</p>
+    <div class="trabajan-bloque" style="margin-top: 32px;">
+      <div class="pertenecen-cabeza">Pertenecen</div>
+      <div class="relacion-card relacion-pertenecen" style="max-width: 100%;">
+        <h3>a la Fundación</h3>
+        <p>Los beneficiarios directos: becarios, estudiantes en servicio social, prácticas profesionales o estadías, y toda persona atendida por los programas de E.B.A.C. Son el fin último para el que la institución existe.</p>
+      </div>
     </div>
 
     <!-- EL CARACOL: 4 dimensiones con sus correspondencias explícitas -->
@@ -670,7 +678,7 @@
         </div>
         <div class="circulo">
           <div class="circulo-dimension">vínculos</div>
-          <div class="circulo-num">VÍNCULOS</div>
+          <div class="circulo-num">ESTRUCTURA</div>
           <div class="circulo-label">Cómo nos relacionamos</div>
           <div class="circulo-pregunta">¿Cómo se articula la Fundación?</div>
         </div>
@@ -720,7 +728,7 @@
           <li>Gestión del negocio ni sustitución de empleo</li>
           <li>Simulación académica de horas sin aprendizaje real</li>
           <li>Carga operativa adicional para las universidades</li>
-          <li>Programa de nuevo inicio: la Segunda Etapa retoma un modelo ejecutado 2020–2022</li>
+          <li>Programa de nuevo inicio: la Segunda Etapa retoma un modelo ejecutado 2018–2021</li>
         </ul>
       </div>
     </div>
@@ -903,27 +911,27 @@
           <circle cx="200" cy="200" r="76" fill="#1a3d1c"/>
           <text x="200" y="195" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#A8C5A0" letter-spacing="0.12em">HUERTO</text>
           <text x="200" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#A8C5A0" letter-spacing="0.12em">ROMA VERDE</text>
-          <!-- Etiquetas en los gajos: ícono + nombre + descripción -->
+          <!-- Etiquetas en los gajos: ícono + nombre + descripción — texto más grande -->
           <!-- Seg 0: Producción — cuadrante sup-der, mid -45°, pos (282, 118) -->
-          <text x="282" y="96" text-anchor="middle" font-size="18" fill="white">🌿</text>
-          <text x="282" y="118" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Producción</text>
-          <text x="282" y="136" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Agroecología</text>
-          <text x="282" y="149" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">urbana activa</text>
+          <text x="282" y="88" text-anchor="middle" font-size="20" fill="white">🌿</text>
+          <text x="282" y="113" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">Producción</text>
+          <text x="282" y="133" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">Agroecología</text>
+          <text x="282" y="149" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">urbana activa</text>
           <!-- Seg 1: Formación — cuadrante inf-der, mid 45°, pos (282, 282) -->
-          <text x="282" y="252" text-anchor="middle" font-size="18" fill="white">📖</text>
-          <text x="282" y="274" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Formación</text>
-          <text x="282" y="291" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Capacitación para</text>
-          <text x="282" y="304" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">micro-empresarios</text>
+          <text x="282" y="248" text-anchor="middle" font-size="20" fill="white">📖</text>
+          <text x="282" y="273" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">Formación</text>
+          <text x="282" y="293" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">Capacitación para</text>
+          <text x="282" y="309" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">micro-empresarios</text>
           <!-- Seg 2: Comunidad — cuadrante inf-izq, mid 135°, pos (118, 282) -->
-          <text x="118" y="252" text-anchor="middle" font-size="18" fill="white">🤝</text>
-          <text x="118" y="274" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Comunidad</text>
-          <text x="118" y="291" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Nodo de encuentro</text>
-          <text x="118" y="304" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">del ecosistema local</text>
+          <text x="118" y="248" text-anchor="middle" font-size="20" fill="white">🤝</text>
+          <text x="118" y="273" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">Comunidad</text>
+          <text x="118" y="293" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">Nodo de encuentro</text>
+          <text x="118" y="309" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">del ecosistema local</text>
           <!-- Seg 3: Referencia — cuadrante sup-izq, mid 225°, pos (118, 118) -->
-          <text x="118" y="96" text-anchor="middle" font-size="18" fill="white">🗺️</text>
-          <text x="118" y="118" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">Referencia</text>
-          <text x="118" y="136" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">Modelo replicable</text>
-          <text x="118" y="149" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.88)">sin perder identidad</text>
+          <text x="118" y="88" text-anchor="middle" font-size="20" fill="white">🗺️</text>
+          <text x="118" y="113" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="white">Referencia</text>
+          <text x="118" y="133" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">Modelo replicable</text>
+          <text x="118" y="149" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">sin perder identidad</text>
         </svg>
         <div class="hrv-quote" style="text-align: left;">
           <p style="font-size: 0.92rem;">En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
@@ -932,8 +940,9 @@
       <!-- Círculo 2: Hikuri Regenerativo — paradigma GeoBioSistémico de HRV -->
       <div class="hrv-circulo-wrap">
         <div class="hrv-circulo-titulo">Hikuri Regenerativo</div>
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;display:block;margin:0 auto 16px;">
-          <!-- 7 gajos del paradigma GeoBioSistémico -->
+        <!-- viewBox ampliado: -55 -40 510 480 para que los conceptos de borde no se corten -->
+        <svg viewBox="-55 -40 510 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;display:block;margin:0 auto 16px;">
+          <!-- 7 gajos del paradigma GeoBioSistémico — geometría sin cambios -->
           <!-- Seg 0: Organización Social -->
           <path d="M 200,40 A 160,160 0 0,1 325.1,100.3 L 258.7,153.2 A 75,75 0 0,0 200,125 Z" fill="#4A7C59"/>
           <!-- Seg 1: Integración Ambiental -->
@@ -959,32 +968,32 @@
           <!-- Círculo central -->
           <circle cx="200" cy="200" r="75" fill="#1C1C1C"/>
           <circle cx="200" cy="200" r="72" fill="none" stroke="rgba(168,197,160,0.4)" stroke-width="1"/>
-          <text x="200" y="192" text-anchor="middle" font-family="'Georgia',serif" font-size="9" fill="#A8C5A0" letter-spacing="1">HIKURI</text>
-          <text x="200" y="204" text-anchor="middle" font-family="'Georgia',serif" font-size="9" fill="#A8C5A0" letter-spacing="1">REGENERATIVO</text>
-          <text x="200" y="218" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="rgba(245,240,232,0.6)" letter-spacing="1.5">HRV</text>
-          <!-- Etiquetas en cada gajo (en el radio medio ~118) -->
-          <text x="251" y="74" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Org.</text>
-          <text x="251" y="83" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Social</text>
-          <text x="318" y="174" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Integración</text>
-          <text x="318" y="183" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Ambiental</text>
-          <text x="283" y="274" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Salud</text>
-          <text x="283" y="283" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Esencial</text>
-          <text x="200" y="326" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Habitabilidad</text>
-          <text x="200" y="335" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Adecuada</text>
-          <text x="117" y="274" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Tecnologías</text>
-          <text x="117" y="283" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Adecuadas</text>
-          <text x="82" y="174" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Economía</text>
-          <text x="82" y="183" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Biosocial</text>
-          <text x="149" y="74" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Cultura</text>
-          <text x="149" y="83" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Regenerativa</text>
-          <!-- Conceptos de borde (anillo exterior) -->
-          <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">RESILIENCIA</text>
-          <text x="355" y="68" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">AUTOPOIESIS</text>
-          <text x="382" y="204" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">BIENESTAR</text>
-          <text x="340" y="358" text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="rgba(168,197,160,0.7)" letter-spacing="0.8">PODER ECONÓMICO</text>
-          <text x="60" y="358" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">ENTROPÍA</text>
-          <text x="18" y="204" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">SIMPOIESIS</text>
-          <text x="45" y="68" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">SINTROPÍA</text>
+          <text x="200" y="189" text-anchor="middle" font-family="'Georgia',serif" font-size="12" fill="#A8C5A0" letter-spacing="1">HIKURI</text>
+          <text x="200" y="205" text-anchor="middle" font-family="'Georgia',serif" font-size="12" fill="#A8C5A0" letter-spacing="1">REGENERATIVO</text>
+          <text x="200" y="222" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(245,240,232,0.6)" letter-spacing="2">HRV</text>
+          <!-- Etiquetas en cada gajo — font 10px (legibles), en el radio medio ~118 -->
+          <text x="251" y="72" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Organización</text>
+          <text x="251" y="85" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Social</text>
+          <text x="318" y="169" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Integración</text>
+          <text x="318" y="182" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Ambiental</text>
+          <text x="285" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Salud</text>
+          <text x="285" y="283" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Esencial</text>
+          <text x="200" y="323" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Habitabilidad</text>
+          <text x="200" y="336" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Adecuada</text>
+          <text x="115" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Tecnologías</text>
+          <text x="115" y="283" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Adecuadas</text>
+          <text x="82" y="169" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Economía</text>
+          <text x="82" y="182" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Biosocial</text>
+          <text x="149" y="72" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Cultura</text>
+          <text x="149" y="85" text-anchor="middle" font-family="sans-serif" font-size="10" fill="white" font-weight="bold">Regenerativa</text>
+          <!-- Conceptos de borde — font 8px, bien dentro del viewBox ampliado -->
+          <text x="200" y="-20" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(168,197,160,0.75)" letter-spacing="1.2">RESILIENCIA</text>
+          <text x="358" y="52" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(168,197,160,0.75)" letter-spacing="1.2">AUTOPOIESIS</text>
+          <text x="400" y="204" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(168,197,160,0.75)" letter-spacing="1.2">BIENESTAR</text>
+          <text x="345" y="372" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="rgba(168,197,160,0.75)" letter-spacing="0.8">PODER ECONÓMICO</text>
+          <text x="55" y="372" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(168,197,160,0.75)" letter-spacing="1.2">ENTROPÍA</text>
+          <text x="-2" y="204" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(168,197,160,0.75)" letter-spacing="1.2">SIMPOIESIS</text>
+          <text x="42" y="52" text-anchor="middle" font-family="sans-serif" font-size="8" fill="rgba(168,197,160,0.75)" letter-spacing="1.2">SINTROPÍA</text>
         </svg>
         <p style="font-family: sans-serif; font-size: 0.78rem; color: rgba(245,240,232,0.6); text-align: center; font-style: italic; margin: 0;">Paradigma GeoBioSistémico — 7 gajos, cada uno con sus células y principios de acción.</p>
       </div>
