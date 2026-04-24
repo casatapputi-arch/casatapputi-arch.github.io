@@ -173,13 +173,39 @@
       padding: 16px 20px; background: white; border-radius: 0 8px 8px 0;
       box-shadow: 0 2px 10px var(--sombra); margin-bottom: 20px; line-height: 1.7;
     }
-    .valores-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .valor-item {
-      background: white; border-radius: 8px; padding: 16px;
-      box-shadow: 0 1px 8px var(--sombra); border-top: 3px solid var(--verde-claro);
+    /* --- Valores en anillo orbital --- */
+    .valores-ring {
+      position: relative; width: min(100%, 400px); min-height: 400px; margin: 0 auto;
     }
-    .valor-item h4 { font-size: 0.88rem; color: var(--verde-oscuro); margin-bottom: 4px; }
-    .valor-item p { font-family: sans-serif; font-size: 0.82rem; color: var(--gris-suave); margin: 0; line-height: 1.5; }
+    .valores-centro {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 92px; height: 92px; border-radius: 50%;
+      background: var(--verde-oscuro);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 2; box-shadow: 0 2px 12px var(--sombra);
+    }
+    .valores-centro span {
+      color: white; font-size: 0.62rem; font-weight: bold;
+      text-align: center; font-family: sans-serif;
+      letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; padding: 0 8px;
+    }
+    .valor-item {
+      background: white; border-radius: 8px; padding: 14px 12px;
+      box-shadow: 0 1px 8px var(--sombra); border-top: 3px solid var(--verde-claro);
+      text-align: center;
+    }
+    .valores-ring .valor-item {
+      position: absolute; width: 108px; transform: translate(-50%, -50%);
+    }
+    .valores-ring .valor-item:nth-child(2) { left: 50%; top: calc(50% - 148px); }
+    .valores-ring .valor-item:nth-child(3) { left: calc(50% + 128px); top: calc(50% - 74px); }
+    .valores-ring .valor-item:nth-child(4) { left: calc(50% + 128px); top: calc(50% + 74px); }
+    .valores-ring .valor-item:nth-child(5) { left: 50%; top: calc(50% + 148px); }
+    .valores-ring .valor-item:nth-child(6) { left: calc(50% - 128px); top: calc(50% + 74px); }
+    .valores-ring .valor-item:nth-child(7) { left: calc(50% - 128px); top: calc(50% - 74px); }
+    .valor-item h4 { font-size: 0.82rem; color: var(--verde-oscuro); margin-bottom: 4px; }
+    .valor-item p { font-family: sans-serif; font-size: 0.76rem; color: var(--gris-suave); margin: 0; line-height: 1.45; }
 
     /* ===================== ENTIDADES ===================== */
     .entities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
@@ -193,7 +219,18 @@
     .entity-card p { font-size: 0.88rem; color: var(--gris-suave); margin: 0; line-height: 1.6; font-family: sans-serif; }
 
     /* ===================== RELACIONES / CARACOL ===================== */
-    .relaciones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 56px; }
+    /* Hub visual: "Trabajan" una sola vez, conectado a en/para/con */
+    .trabajan-bloque { margin-bottom: 32px; }
+    .trabajan-cabeza {
+      text-align: center; font-family: 'Georgia', serif;
+      font-size: 1.7rem; font-weight: bold; color: var(--verde-oscuro);
+      padding-bottom: 16px; border-bottom: 2px solid var(--borde);
+      margin-bottom: 16px; letter-spacing: 0.02em;
+    }
+    .trabajan-ramas { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .trabajan-ramas .relacion-card:nth-child(1)::before { background: var(--verde-oscuro); }
+    .trabajan-ramas .relacion-card:nth-child(2)::before { background: var(--verde-medio); }
+    .trabajan-ramas .relacion-card:nth-child(3)::before { background: var(--verde-claro); }
     .relacion-card {
       background: white; border-radius: 10px; padding: 24px;
       box-shadow: 0 2px 12px var(--sombra); position: relative; overflow: hidden;
@@ -202,27 +239,58 @@
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
       background: var(--verde-oscuro);
     }
-    .relacion-card:nth-child(2)::before { background: var(--verde-medio); }
-    .relacion-card:nth-child(3)::before { background: var(--tierra); }
-    .relacion-card:nth-child(4)::before { background: var(--verde-claro); }
+    .relacion-pertenecen { border-top: 4px solid var(--tierra); max-width: 380px; }
+    .relacion-pertenecen::before { background: var(--tierra); }
     .relacion-prep {
       font-family: sans-serif; font-size: 0.72rem; font-weight: bold;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--gris-suave); margin-bottom: 6px;
     }
-    .relacion-card h3 { font-size: 1rem; margin-bottom: 10px; color: var(--verde-oscuro); }
+    .relacion-preposicion {
+      font-size: 1.4rem; font-family: 'Georgia', serif; font-style: italic;
+      color: var(--verde-oscuro); margin-bottom: 6px; display: block;
+    }
+    .relacion-card h3 { font-size: 0.95rem; margin-bottom: 10px; color: var(--verde-oscuro); }
     .relacion-card p { font-family: sans-serif; font-size: 0.85rem; color: var(--gris-suave); margin: 0; line-height: 1.6; }
     .relacion-nota {
       margin-top: 10px; font-size: 0.78rem; font-style: italic;
       color: var(--verde-medio); font-family: sans-serif;
     }
+    /* Caracol / 4 dimensiones */
     .caracol-section { background: var(--arena); border-radius: 12px; padding: 40px; }
-    .caracol-intro { font-family: sans-serif; font-size: 0.92rem; color: var(--gris-suave); margin-bottom: 28px; max-width: 640px; font-style: italic; }
+    .caracol-intro { font-family: sans-serif; font-size: 0.92rem; color: var(--gris-suave); margin-bottom: 8px; max-width: 640px; font-style: italic; }
     .dimension-tag {
       font-style: normal; font-weight: bold; color: var(--verde-oscuro);
       background: rgba(168,197,160,0.25); padding: 1px 7px;
       border-radius: 4px; white-space: nowrap;
     }
+    .circulo-dimension {
+      font-size: 0.65rem; font-family: sans-serif; font-weight: bold;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--tierra); margin-bottom: 4px;
+    }
+    /* HRV — dos círculos */
+    .hrv-dos-circulos { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; align-items: start; }
+    .hrv-circulo-wrap { text-align: center; }
+    .hrv-circulo-titulo {
+      font-size: 0.78rem; font-family: sans-serif; font-weight: bold;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--verde-claro); margin-bottom: 16px;
+    }
+    /* Anillo orbital para los 4 features del HRV */
+    .hrv-features-ring {
+      position: relative; width: 240px; height: 240px; margin: 0 auto 16px;
+    }
+    .hrv-features-ring .hrv-feat {
+      position: absolute; width: 94px; transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 8px;
+      border-left: none; border-top: 2px solid rgba(168,197,160,0.6);
+      text-align: center;
+    }
+    .hrv-features-ring .hrv-feat:nth-child(1) { left: 50%; top: 0%; }
+    .hrv-features-ring .hrv-feat:nth-child(2) { left: 100%; top: 50%; }
+    .hrv-features-ring .hrv-feat:nth-child(3) { left: 50%; top: 100%; }
+    .hrv-features-ring .hrv-feat:nth-child(4) { left: 0%; top: 50%; }
     .caracol-circulos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
     .circulo {
       padding: 20px 16px; text-align: center; position: relative;
@@ -389,7 +457,9 @@
       .hero-inner, .programa-grid, .tab-panel.active, .hrv-inner,
       .contacto-grid, .footer-inner, .quienes-grid { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
-      .hrv-features, .valores-grid { grid-template-columns: 1fr; }
+      .hrv-features, .hrv-dos-circulos, .trabajan-ramas { grid-template-columns: 1fr; }
+      .valores-ring { min-height: auto; }
+      .valores-ring .valor-item { position: static; width: auto; transform: none; margin-bottom: 8px; }
       .footer-inner { grid-template-columns: 1fr; }
       .section { padding: 56px 0; }
       .hero-flow { flex-direction: column; }
@@ -501,8 +571,9 @@
         <p style="font-family: sans-serif; font-size: 0.88rem; color: var(--gris-suave); font-style: italic;">Su visión: una sociedad donde la dignidad no sea aspiración sino condición.</p>
       </div>
       <div>
-        <h3 style="font-size: 1.1rem; margin-bottom: 20px; color: var(--verde-oscuro);">Valores institucionales</h3>
-        <div class="valores-grid">
+        <h3 style="font-size: 1.1rem; margin-bottom: 24px; color: var(--verde-oscuro);">Valores institucionales</h3>
+        <div class="valores-ring">
+          <div class="valores-centro"><span>Valores<br>E.B.A.C.</span></div>
           <div class="valor-item">
             <h4>Humanismo</h4>
             <p>El centro de toda acción es la persona. Sin excepción, sin jerarquías de mérito.</p>
@@ -558,50 +629,59 @@
     <div class="tag">Cómo nos relacionamos</div>
     <h2 class="section-title">Una institución de puertas abiertas</h2>
     <p class="section-subtitle">Fundación E.B.A.C. no es una institución cerrada. Su vocación es el encuentro, la vinculación y la construcción colectiva. Las formas de relacionarse con ella tienen nombres precisos porque cada nombre importa.</p>
-    <div class="relaciones-grid">
-      <div class="relacion-card">
-        <div class="relacion-prep">Trabajan</div>
-        <h3>en la Fundación</h3>
-        <p>Forman parte del cuerpo administrativo y operativo interno. Coordinan, gestionan, sostienen el funcionamiento cotidiano. No ejecutan instrucciones: interpretan una visión, la traducen en acción concreta y la sostienen con criterio y compromiso.</p>
-      </div>
-      <div class="relacion-card">
-        <div class="relacion-prep">Trabajan</div>
-        <h3>para la Fundación</h3>
-        <p>Personas o entidades externas que prestan servicios específicos mediante acuerdos o contratos. Su relación es de colaboración profesional. Quien presta un servicio a E.B.A.C. es embajador involuntario de lo que la Fundación proyecta al mundo.</p>
-      </div>
-      <div class="relacion-card">
-        <div class="relacion-prep">Trabajan</div>
-        <h3>con la Fundación</h3>
-        <p>Figuras que, desde su propia autonomía, se articulan con E.B.A.C. en dirección compartida. Aquí se encuentran las Direcciones territoriales y los organismos con gobierno propio que nacen desde el reconocimiento de la Fundación y llevan su respaldo.</p>
-        <div class="relacion-nota">Organismos autónomos formalmente constituidos, con representante propio y número de registro interno.</div>
-      </div>
-      <div class="relacion-card">
-        <div class="relacion-prep">Pertenecen</div>
-        <h3>a la Fundación</h3>
-        <p>Los beneficiarios directos: becarios, estudiantes en servicio social, prácticas profesionales o estadías, y toda persona atendida por los programas de E.B.A.C. Son el fin último para el que la institución existe.</p>
+    <!-- "Trabajan" aparece una sola vez como cabeza visual de tres ramas -->
+    <div class="trabajan-bloque">
+      <div class="trabajan-cabeza">Trabajan</div>
+      <div class="trabajan-ramas">
+        <div class="relacion-card">
+          <span class="relacion-preposicion">en</span>
+          <h3>la Fundación</h3>
+          <p>Forman parte del cuerpo administrativo y operativo interno. Coordinan, gestionan, sostienen el funcionamiento cotidiano. No ejecutan instrucciones: interpretan una visión, la traducen en acción concreta y la sostienen con criterio y compromiso.</p>
+        </div>
+        <div class="relacion-card">
+          <span class="relacion-preposicion">para</span>
+          <h3>la Fundación</h3>
+          <p>Personas o entidades externas que prestan servicios específicos mediante acuerdos o contratos. Su relación es de colaboración profesional. Quien presta un servicio a E.B.A.C. es embajador involuntario de lo que la Fundación proyecta al mundo.</p>
+        </div>
+        <div class="relacion-card">
+          <span class="relacion-preposicion">con</span>
+          <h3>la Fundación</h3>
+          <p>Figuras que, desde su propia autonomía, se articulan con E.B.A.C. en dirección compartida. Aquí se encuentran las Direcciones territoriales y los organismos con gobierno propio que nacen desde el reconocimiento de la Fundación y llevan su respaldo.</p>
+          <div class="relacion-nota">Organismos autónomos formalmente constituidos, con representante propio y número de registro interno.</div>
+        </div>
       </div>
     </div>
+    <!-- "Pertenecen a" como categoría distinta — los beneficiarios, fin último -->
+    <div class="relacion-card relacion-pertenecen">
+      <div class="relacion-prep">Pertenecen</div>
+      <h3>a la Fundación</h3>
+      <p>Los beneficiarios directos: becarios, estudiantes en servicio social, prácticas profesionales o estadías, y toda persona atendida por los programas de E.B.A.C. Son el fin último para el que la institución existe.</p>
+    </div>
 
-    <!-- EL CARACOL -->
-    <div class="caracol-section">
-      <p class="caracol-intro">Fundación E.B.A.C. articula su trabajo en cuatro dimensiones complementarias: <span class="dimension-tag">identidad</span>, <span class="dimension-tag">vínculos</span>, <span class="dimension-tag">acción</span> y <span class="dimension-tag">participación</span>. Cada una sustenta a las demás y da coherencia a nuestro quehacer institucional.</p>
+    <!-- EL CARACOL: 4 dimensiones con sus correspondencias explícitas -->
+    <div class="caracol-section" style="margin-top: 48px;">
+      <p class="caracol-intro">Fundación E.B.A.C. articula su trabajo en cuatro dimensiones complementarias. Cada una corresponde a un ámbito de acción institucional:</p>
       <div class="caracol-circulos">
         <div class="circulo">
+          <div class="circulo-dimension">identidad</div>
           <div class="circulo-num">SER</div>
           <div class="circulo-label">Quiénes somos</div>
           <div class="circulo-pregunta">¿Qué es Fundación E.B.A.C.?</div>
         </div>
         <div class="circulo">
+          <div class="circulo-dimension">vínculos</div>
           <div class="circulo-num">VÍNCULOS</div>
           <div class="circulo-label">Cómo nos relacionamos</div>
           <div class="circulo-pregunta">¿Cómo se articula la Fundación?</div>
         </div>
         <div class="circulo">
+          <div class="circulo-dimension">acción</div>
           <div class="circulo-num">PROGRAMA</div>
           <div class="circulo-label">Qué hacemos</div>
           <div class="circulo-pregunta">¿En qué campos opera?</div>
         </div>
         <div class="circulo">
+          <div class="circulo-dimension">participación</div>
           <div class="circulo-num">OPERACIÓN</div>
           <div class="circulo-label">Cómo participar</div>
           <div class="circulo-pregunta">¿Cómo me involucro?</div>
@@ -797,49 +877,92 @@
 <!-- HRV -->
 <section class="section section-dark" id="hrv">
   <div class="container">
-    <div class="hrv-inner">
-      <div>
-        <div class="tag" style="background: rgba(168,197,160,0.3); color: var(--verde-claro);">Nodo operativo</div>
-        <h2 class="section-title" style="color: var(--arena);">Huerto Roma Verde: el laboratorio vivo</h2>
-        <p style="color: rgba(245,240,232,0.85); font-family: sans-serif; font-size: 0.95rem; margin-bottom: 24px;">HRV no es solo la sede: es la prueba tangible del modelo. Un espacio donde la producción agroecológica, la formación universitaria y el fortalecimiento comunitario convergen en un lugar que se puede visitar, tocar y verificar.</p>
-        <div class="hrv-features">
-          <div class="hrv-feat">
-            <div class="hrv-feat-icon">🌿</div>
-            <h4>Producción</h4>
-            <p>Agricultura urbana activa con trazabilidad y prácticas responsables</p>
-          </div>
-          <div class="hrv-feat">
-            <div class="hrv-feat-icon">📖</div>
-            <h4>Formación</h4>
-            <p>Espacio de capacitación para estudiantes y microempresarios</p>
-          </div>
-          <div class="hrv-feat">
-            <div class="hrv-feat-icon">🤝</div>
-            <h4>Comunidad</h4>
-            <p>Nodo de encuentro entre actores del ecosistema local</p>
-          </div>
-          <div class="hrv-feat">
-            <div class="hrv-feat-icon">🗺️</div>
-            <h4>Referencia</h4>
-            <p>Modelo metodológico replicable sin perder autenticidad</p>
-          </div>
+    <div class="tag" style="background: rgba(168,197,160,0.3); color: var(--verde-claro);">Nodo operativo</div>
+    <h2 class="section-title" style="color: var(--arena);">Huerto Roma Verde: el laboratorio vivo</h2>
+    <p style="color: rgba(245,240,232,0.85); font-family: sans-serif; font-size: 0.95rem; margin-bottom: 8px; max-width: 680px;">HRV no es solo la sede: es la prueba tangible del modelo. Un espacio donde la producción agroecológica, la formación universitaria y el fortalecimiento comunitario convergen en un lugar que se puede visitar, tocar y verificar.</p>
+    <div class="hrv-dos-circulos">
+      <!-- Círculo 1: los cuatro ejes de acción de HRV -->
+      <div class="hrv-circulo-wrap">
+        <div class="hrv-circulo-titulo">Ejes de acción</div>
+        <div class="hrv-features-ring">
+          <div class="hrv-feat"><div class="hrv-feat-icon">🌿</div><h4>Producción</h4><p>Agricultura urbana activa con trazabilidad y prácticas responsables</p></div>
+          <div class="hrv-feat"><div class="hrv-feat-icon">📖</div><h4>Formación</h4><p>Capacitación para estudiantes y microempresarios</p></div>
+          <div class="hrv-feat"><div class="hrv-feat-icon">🤝</div><h4>Comunidad</h4><p>Nodo de encuentro entre actores del ecosistema local</p></div>
+          <div class="hrv-feat"><div class="hrv-feat-icon">🗺️</div><h4>Referencia</h4><p>Modelo replicable sin perder autenticidad</p></div>
+        </div>
+        <div class="hrv-quote" style="text-align: left;">
+          <p style="font-size: 0.92rem;">En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
         </div>
       </div>
-      <div class="hrv-visual-side">
-        <div class="hrv-quote">
-          <p>En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
-        </div>
+      <!-- Círculo 2: Hikuri Regenerativo — paradigma GeoBioSistémico de HRV -->
+      <div class="hrv-circulo-wrap">
+        <div class="hrv-circulo-titulo">Hikuri Regenerativo</div>
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;display:block;margin:0 auto 16px;">
+          <!-- 7 gajos del paradigma GeoBioSistémico -->
+          <!-- Seg 0: Organización Social -->
+          <path d="M 200,40 A 160,160 0 0,1 325.1,100.3 L 258.7,153.2 A 75,75 0 0,0 200,125 Z" fill="#4A7C59"/>
+          <!-- Seg 1: Integración Ambiental -->
+          <path d="M 325.1,100.3 A 160,160 0 0,1 355.9,228.3 L 273.1,216.7 A 75,75 0 0,0 258.7,153.2 Z" fill="#2C5F2E"/>
+          <!-- Seg 2: Salud Esencial -->
+          <path d="M 355.9,228.3 A 160,160 0 0,1 269.4,344.1 L 232.6,267.6 A 75,75 0 0,0 273.1,216.7 Z" fill="#7BA393"/>
+          <!-- Seg 3: Habitabilidad Adecuada -->
+          <path d="M 269.4,344.1 A 160,160 0 0,1 130.6,344.1 L 167.4,267.6 A 75,75 0 0,0 232.6,267.6 Z" fill="#8B5E3C"/>
+          <!-- Seg 4: Tecnologías Adecuadas -->
+          <path d="M 130.6,344.1 A 160,160 0 0,1 44.0,235.5 L 126.9,216.7 A 75,75 0 0,0 167.4,267.6 Z" fill="#6B8A70"/>
+          <!-- Seg 5: Economía Biosocial -->
+          <path d="M 44.0,235.5 A 160,160 0 0,1 74.9,100.3 L 141.3,153.2 A 75,75 0 0,0 126.9,216.7 Z" fill="#B07845"/>
+          <!-- Seg 6: Cultura Regenerativa -->
+          <path d="M 74.9,100.3 A 160,160 0 0,1 200,40 L 200,125 A 75,75 0 0,0 141.3,153.2 Z" fill="#5C8C6A"/>
+          <!-- Separadores entre gajos -->
+          <line x1="200" y1="40" x2="200" y2="125" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="325.1" y1="100.3" x2="258.7" y2="153.2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="355.9" y1="228.3" x2="273.1" y2="216.7" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="269.4" y1="344.1" x2="232.6" y2="267.6" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="130.6" y1="344.1" x2="167.4" y2="267.6" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="44.0" y1="235.5" x2="126.9" y2="216.7" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="74.9" y1="100.3" x2="141.3" y2="153.2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <!-- Círculo central -->
+          <circle cx="200" cy="200" r="75" fill="#1C1C1C"/>
+          <circle cx="200" cy="200" r="72" fill="none" stroke="rgba(168,197,160,0.4)" stroke-width="1"/>
+          <text x="200" y="192" text-anchor="middle" font-family="'Georgia',serif" font-size="9" fill="#A8C5A0" letter-spacing="1">HIKURI</text>
+          <text x="200" y="204" text-anchor="middle" font-family="'Georgia',serif" font-size="9" fill="#A8C5A0" letter-spacing="1">REGENERATIVO</text>
+          <text x="200" y="218" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="rgba(245,240,232,0.6)" letter-spacing="1.5">HRV</text>
+          <!-- Etiquetas en cada gajo (en el radio medio ~118) -->
+          <text x="251" y="74" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Org.</text>
+          <text x="251" y="83" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Social</text>
+          <text x="318" y="174" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Integración</text>
+          <text x="318" y="183" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Ambiental</text>
+          <text x="283" y="274" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Salud</text>
+          <text x="283" y="283" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Esencial</text>
+          <text x="200" y="326" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Habitabilidad</text>
+          <text x="200" y="335" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Adecuada</text>
+          <text x="117" y="274" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Tecnologías</text>
+          <text x="117" y="283" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Adecuadas</text>
+          <text x="82" y="174" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Economía</text>
+          <text x="82" y="183" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Biosocial</text>
+          <text x="149" y="74" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Cultura</text>
+          <text x="149" y="83" text-anchor="middle" font-family="sans-serif" font-size="7" fill="white" font-weight="bold">Regenerativa</text>
+          <!-- Conceptos de borde (anillo exterior) -->
+          <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">RESILIENCIA</text>
+          <text x="355" y="68" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">AUTOPOIESIS</text>
+          <text x="382" y="204" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">BIENESTAR</text>
+          <text x="340" y="358" text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="rgba(168,197,160,0.7)" letter-spacing="0.8">PODER ECONÓMICO</text>
+          <text x="60" y="358" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">ENTROPÍA</text>
+          <text x="18" y="204" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">SIMPOIESIS</text>
+          <text x="45" y="68" text-anchor="middle" font-family="sans-serif" font-size="6" fill="rgba(168,197,160,0.7)" letter-spacing="1">SINTROPÍA</text>
+        </svg>
+        <p style="font-family: sans-serif; font-size: 0.78rem; color: rgba(245,240,232,0.6); text-align: center; font-style: italic; margin: 0;">Paradigma GeoBioSistémico — 7 gajos, cada uno con sus células y principios de acción.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ANTECEDENTES -->
+<!-- PROGRAMAS -->
 <section class="section section-alt" id="antecedentes">
   <div class="container">
-    <div class="tag">Experiencia</div>
-    <h2 class="section-title">No partimos de cero</h2>
-    <p class="section-subtitle">La Segunda Etapa retoma un modelo ejecutado entre 2020 y 2022 con resultados comprobables en territorio. No es un piloto: es una especialización.</p>
+    <div class="tag">Programas</div>
+    <h2 class="section-title">Programas ejecutados</h2>
+    <p class="section-subtitle">La Segunda Etapa retoma un modelo ejecutado entre 2018 y 2021 con resultados comprobables en territorio. No es un piloto: es una especialización.</p>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
       <div class="timeline">
         <div class="timeline-item">
@@ -850,13 +973,13 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2020–2022</div>
+          <div class="timeline-year">2018–2021</div>
           <h3>Primera Etapa del Programa</h3>
           <p>Implementación en el municipio de Tecámac, Estado de México. Participación de universidades, bachilleratos tecnológicos, microempresas y actores comunitarios. Operación directa en territorio sin financiamiento público directo.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2022–2024</div>
+          <div class="timeline-year">2021–2024</div>
           <h3>Pausa operativa</h3>
           <p>Reconfiguración institucional y cambios en responsabilidades directivas. Incorporación del enfoque agroecológico como eje estratégico de la Segunda Etapa.</p>
         </div>
@@ -869,15 +992,14 @@
       </div>
       <div>
         <div style="background: var(--verde-oscuro); color: var(--arena); border-radius: 10px; padding: 32px; margin-bottom: 20px;">
-          <h3 style="color: var(--verde-claro); font-size: 1rem; margin-bottom: 16px; letter-spacing: 0.04em;">Actividades documentadas · Primera Etapa</h3>
+          <h3 style="color: var(--verde-claro); font-size: 1rem; margin-bottom: 16px; letter-spacing: 0.04em;">Programas documentados · Primera Etapa</h3>
           <ul style="list-style: none; font-family: sans-serif; font-size: 0.88rem; color: rgba(245,240,232,0.85);">
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Programa de fomento al deporte, Los Reyes Acozac</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Programa de fomento al deporte en Los Reyes Acozac</li>
             <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Foro de educación en violencia de género, Tecámac</li>
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Ferias de microemprendimiento con visita federal</li>
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Cursos de tanatología y capacidades especiales</li>
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Formación para bachilleratos tecnológicos, Tecámac</li>
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Capacitación en reforestación y siembra para pedagogos</li>
-            <li style="padding: 8px 0;">→ Fiesta de Día de Muertos, San Pablo Tecalco</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Curso de oralidad para el municipio de Tecámac</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Cursos para jóvenes de bachillerato en Tecámac</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">→ Capacitación en la Universidad de Tecámac para la fiesta de San Pablo</li>
+            <li style="padding: 8px 0;">→ Insumos para locatarios de la central de abastos de Ecatepec — CBT no. 3</li>
           </ul>
         </div>
         <div style="background: white; border-radius: 10px; padding: 24px; box-shadow: 0 2px 12px var(--sombra);">
