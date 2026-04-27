@@ -21,12 +21,12 @@
       --borde: #D8D0C4;
       --sombra: rgba(44, 95, 46, 0.12);
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 18px; }
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
       background-color: var(--crema);
       color: var(--gris-texto);
-      line-height: 1.75;
+      line-height: 1.8;
       text-align: justify;
     }
     h1, h2, h3, h4, h5 {
@@ -38,8 +38,8 @@
     a { color: var(--verde-medio); text-decoration: none; }
     a:hover { text-decoration: underline; }
     img { max-width: 100%; display: block; }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 80px 0; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 100px 0; }
     .section-alt { background-color: var(--arena); }
     .section-dark { background-color: var(--verde-oscuro); color: var(--arena); }
     .section-dark h2, .section-dark h3, .section-dark p { color: var(--arena); }
@@ -55,8 +55,8 @@
       border-radius: 20px;
       margin-bottom: 16px;
     }
-    .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 16px; }
-    .section-subtitle { font-size: 1.1rem; color: var(--gris-suave); max-width: 640px; margin-bottom: 48px; font-style: italic; }
+    .section-title { font-size: clamp(1.9rem, 3.2vw, 2.8rem); margin-bottom: 20px; }
+    .section-subtitle { font-size: 1.2rem; color: var(--gris-suave); max-width: 680px; margin-bottom: 56px; font-style: italic; }
 
     /* ===================== NAVBAR ===================== */
     nav {
@@ -99,7 +99,7 @@
 
     /* ===================== HERO ===================== */
     .hero {
-      padding: 100px 0 80px;
+      padding: 124px 0 100px;
       background: linear-gradient(160deg, var(--crema) 55%, var(--verde-claro) 100%);
       position: relative; overflow: hidden;
     }
@@ -115,16 +115,16 @@
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--verde-medio); margin-bottom: 16px;
     }
-    .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2.4rem, 4.5vw, 3.8rem); margin-bottom: 24px; }
     .hero-lead {
-      font-size: 1.02rem; color: var(--gris-suave);
+      font-size: 1.15rem; color: var(--gris-suave);
       margin-bottom: 20px; line-height: 1.7; font-style: italic;
     }
     .hero-lead strong { color: var(--verde-oscuro); font-style: normal; font-weight: bold; }
     .hero-flow { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
     .flow-actor {
-      flex: 1; min-width: 130px; background: white; border-radius: 10px;
-      padding: 14px 12px; box-shadow: 0 2px 10px var(--sombra);
+      flex: 1; min-width: 140px; background: white; border-radius: 10px;
+      padding: 18px 16px; box-shadow: 0 2px 10px var(--sombra);
       text-align: center; border-top: 3px solid var(--verde-oscuro); transition: transform 0.2s;
     }
     .flow-actor:hover { transform: translateY(-2px); }
@@ -160,8 +160,8 @@
       grid-template-columns: 1fr 1fr; gap: 24px;
     }
     .stat { text-align: center; }
-    .stat-num { font-size: 2.4rem; font-weight: bold; color: var(--verde-oscuro); line-height: 1; }
-    .stat-label { font-size: 0.82rem; color: var(--gris-suave); font-family: sans-serif; margin-top: 6px; }
+    .stat-num { font-size: 2.8rem; font-weight: bold; color: var(--verde-oscuro); line-height: 1; }
+    .stat-label { font-size: 0.92rem; color: var(--gris-suave); font-family: sans-serif; margin-top: 8px; }
     .stat-divider { grid-column: 1 / -1; height: 1px; background: var(--borde); }
 
     /* ===================== QUIÉNES SOMOS ===================== */
@@ -177,35 +177,35 @@
     .valores-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-top: 20px; }
     .vleg-item { display: flex; gap: 10px; align-items: flex-start; }
     .vleg-dot { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
-    .vleg-item strong { font-size: 0.9rem; color: var(--verde-oscuro); display: block; margin-bottom: 2px; font-family: sans-serif; }
-    .vleg-item p { font-family: sans-serif; font-size: 0.82rem; color: var(--gris-suave); margin: 0; line-height: 1.5; }
+    .vleg-item strong { font-size: 1rem; color: var(--verde-oscuro); display: block; margin-bottom: 4px; font-family: sans-serif; }
+    .vleg-item p { font-family: sans-serif; font-size: 0.93rem; color: var(--gris-suave); margin: 0; line-height: 1.6; }
 
     /* ===================== ENTIDADES ===================== */
     .entities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
     .entity-card {
-      background: white; border-radius: 10px; padding: 28px 24px;
+      background: white; border-radius: 12px; padding: 36px 30px;
       border-left: 4px solid var(--verde-medio);
       box-shadow: 0 2px 12px var(--sombra); transition: transform 0.2s;
     }
     .entity-card:hover { transform: translateY(-3px); }
-    .entity-card h3 { font-size: 1rem; margin-bottom: 8px; color: var(--verde-oscuro); }
-    .entity-card p { font-size: 0.88rem; color: var(--gris-suave); margin: 0; line-height: 1.6; font-family: sans-serif; }
+    .entity-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--verde-oscuro); }
+    .entity-card p { font-size: 0.97rem; color: var(--gris-suave); margin: 0; line-height: 1.7; font-family: sans-serif; }
 
     /* ===================== RELACIONES / CARACOL ===================== */
     /* Hub visual: "Trabajan" una sola vez, conectado a en/para/con */
     .trabajan-bloque { margin-bottom: 32px; }
     .trabajan-cabeza {
       text-align: center; font-family: 'Georgia', serif;
-      font-size: 1.7rem; font-weight: bold; color: var(--verde-oscuro);
-      padding-bottom: 16px; border-bottom: 2px solid var(--borde);
-      margin-bottom: 16px; letter-spacing: 0.02em;
+      font-size: 2.1rem; font-weight: bold; color: var(--verde-oscuro);
+      padding-bottom: 20px; border-bottom: 2px solid var(--borde);
+      margin-bottom: 20px; letter-spacing: 0.02em;
     }
     .trabajan-ramas { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
     .trabajan-ramas .relacion-card:nth-child(1)::before { background: var(--verde-oscuro); }
     .trabajan-ramas .relacion-card:nth-child(2)::before { background: var(--verde-medio); }
     .trabajan-ramas .relacion-card:nth-child(3)::before { background: var(--verde-claro); }
     .relacion-card {
-      background: white; border-radius: 10px; padding: 24px;
+      background: white; border-radius: 12px; padding: 32px;
       box-shadow: 0 2px 12px var(--sombra); position: relative; overflow: hidden;
     }
     .relacion-card::before {
@@ -217,9 +217,9 @@
     /* Cabeza de "Pertenecen" — misma jerarquía visual que "Trabajan" */
     .pertenecen-cabeza {
       text-align: center; font-family: 'Georgia', serif;
-      font-size: 1.7rem; font-weight: bold; color: var(--tierra);
-      padding-bottom: 16px; border-bottom: 2px solid var(--borde);
-      margin-bottom: 16px; letter-spacing: 0.02em;
+      font-size: 2.1rem; font-weight: bold; color: var(--tierra);
+      padding-bottom: 20px; border-bottom: 2px solid var(--borde);
+      margin-bottom: 20px; letter-spacing: 0.02em;
     }
     .relacion-prep {
       font-family: sans-serif; font-size: 0.72rem; font-weight: bold;
@@ -227,17 +227,17 @@
       color: var(--gris-suave); margin-bottom: 6px;
     }
     .relacion-preposicion {
-      font-size: 1.4rem; font-family: 'Georgia', serif; font-style: italic;
+      font-size: 1.7rem; font-family: 'Georgia', serif; font-style: italic;
       color: var(--verde-oscuro); margin-bottom: 6px; display: block;
     }
-    .relacion-card h3 { font-size: 0.95rem; margin-bottom: 10px; color: var(--verde-oscuro); }
-    .relacion-card p { font-family: sans-serif; font-size: 0.85rem; color: var(--gris-suave); margin: 0; line-height: 1.6; }
+    .relacion-card h3 { font-size: 1.1rem; margin-bottom: 12px; color: var(--verde-oscuro); }
+    .relacion-card p { font-family: sans-serif; font-size: 0.97rem; color: var(--gris-suave); margin: 0; line-height: 1.7; }
     .relacion-nota {
       margin-top: 10px; font-size: 0.78rem; font-style: italic;
       color: var(--verde-medio); font-family: sans-serif;
     }
     /* Caracol / 4 dimensiones */
-    .caracol-section { background: var(--arena); border-radius: 12px; padding: 40px; }
+    .caracol-section { background: var(--arena); border-radius: 16px; padding: 52px; }
     .caracol-intro { font-family: sans-serif; font-size: 0.92rem; color: var(--gris-suave); margin-bottom: 8px; max-width: 640px; font-style: italic; }
     .dimension-tag {
       font-style: normal; font-weight: bold; color: var(--verde-oscuro);
@@ -260,20 +260,20 @@
     /* HRV ejes de acción: SVG donut 4 segmentos */
     .caracol-circulos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
     .circulo {
-      padding: 20px 16px; text-align: center; position: relative;
+      padding: 28px 20px; text-align: center; position: relative;
       border-right: 1px solid var(--borde);
     }
     .circulo:last-child { border-right: none; }
     .circulo-num {
-      font-size: 2rem; font-weight: bold; color: var(--verde-claro); line-height: 1;
-      margin-bottom: 6px; font-family: 'Georgia', serif;
+      font-size: 2.4rem; font-weight: bold; color: var(--verde-claro); line-height: 1;
+      margin-bottom: 8px; font-family: 'Georgia', serif;
     }
     .circulo-label {
-      font-size: 0.75rem; font-family: sans-serif; font-weight: bold;
+      font-size: 0.88rem; font-family: sans-serif; font-weight: bold;
       text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--verde-oscuro); margin-bottom: 8px;
+      color: var(--verde-oscuro); margin-bottom: 10px;
     }
-    .circulo-pregunta { font-size: 0.82rem; font-style: italic; color: var(--gris-suave); font-family: sans-serif; line-height: 1.5; }
+    .circulo-pregunta { font-size: 0.94rem; font-style: italic; color: var(--gris-suave); font-family: sans-serif; line-height: 1.6; }
     .circulo-flecha {
       position: absolute; right: -10px; top: 50%;
       transform: translateY(-50%);
@@ -427,7 +427,8 @@
       .hrv-features, .hrv-dos-circulos, .trabajan-ramas { grid-template-columns: 1fr; }
       .valores-legend { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
-      .section { padding: 56px 0; }
+      .section { padding: 64px 0; }
+      html { font-size: 16px; }
       .hero-flow { flex-direction: column; }
       .caracol-circulos { grid-template-columns: 1fr 1fr; }
       .circulo { border-right: none; border-bottom: 1px solid var(--borde); }
@@ -539,7 +540,7 @@
       <div>
         <h3 style="font-size: 1.1rem; margin-bottom: 24px; color: var(--verde-oscuro);">Valores institucionales</h3>
         <!-- Valores: SVG donut de 6 segmentos iguales (60° cada uno) -->
-        <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;display:block;margin:0 auto 4px;" role="img" aria-label="Seis valores institucionales de la Fundación E.B.A.C.">
+        <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:460px;display:block;margin:0 auto 4px;" role="img" aria-label="Seis valores institucionales de la Fundación E.B.A.C.">
           <!-- Seg 0 Humanismo: -90° → -30° -->
           <path d="M 220,50 A 170,170 0 0,1 367.2,135 L 297.9,175 A 90,90 0 0,0 220,130 Z" fill="#2C5F2E"/>
           <!-- Seg 1 Integración: -30° → 30° -->
@@ -893,7 +894,7 @@
       <div class="hrv-circulo-wrap">
         <div class="hrv-circulo-titulo">Ejes de acción</div>
         <!-- Ejes HRV: SVG donut de 4 segmentos (90° cada uno) -->
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;display:block;margin:0 auto 16px;" role="img" aria-label="Cuatro ejes de acción de Huerto Roma Verde">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;margin:0 auto 16px;" role="img" aria-label="Cuatro ejes de acción de Huerto Roma Verde">
           <!-- Seg 0: Producción — cuadrante superior derecho (-90° a 0°) -->
           <path d="M 200,45 A 155,155 0 0,1 355,200 L 278,200 A 78,78 0 0,0 200,122 Z" fill="#2C5F2E"/>
           <!-- Seg 1: Formación — cuadrante inferior derecho (0° a 90°) -->
@@ -941,7 +942,7 @@
       <div class="hrv-circulo-wrap">
         <div class="hrv-circulo-titulo">Hikuri Regenerativo</div>
         <!-- viewBox ampliado: -55 -40 510 480 para que los conceptos de borde no se corten -->
-        <svg viewBox="-55 -40 510 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;display:block;margin:0 auto 16px;">
+        <svg viewBox="-55 -40 510 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;display:block;margin:0 auto 16px;">
           <!-- 7 gajos del paradigma GeoBioSistémico — geometría sin cambios -->
           <!-- Seg 0: Organización Social -->
           <path d="M 200,40 A 160,160 0 0,1 325.1,100.3 L 258.7,153.2 A 75,75 0 0,0 200,125 Z" fill="#4A7C59"/>
