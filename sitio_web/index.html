@@ -250,7 +250,7 @@
       color: var(--tierra); margin-bottom: 4px;
     }
     /* HRV — dos círculos */
-    .hrv-dos-circulos { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; align-items: start; }
+    .hrv-dos-circulos { display: flex; flex-direction: column; align-items: center; gap: 60px; margin-top: 40px; }
     .hrv-circulo-wrap { text-align: center; }
     .hrv-circulo-titulo {
       font-size: 0.78rem; font-family: sans-serif; font-weight: bold;
@@ -424,7 +424,7 @@
       .hero-inner, .programa-grid, .tab-panel.active, .hrv-inner,
       .contacto-grid, .footer-inner, .quienes-grid { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
-      .hrv-features, .hrv-dos-circulos, .trabajan-ramas { grid-template-columns: 1fr; }
+      .hrv-features, .trabajan-ramas { grid-template-columns: 1fr; }
       .valores-legend { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .section { padding: 64px 0; }
@@ -894,46 +894,48 @@
       <!-- Círculo 1: los cuatro ejes de acción de HRV -->
       <div class="hrv-circulo-wrap">
         <div class="hrv-circulo-titulo">Ejes de acción</div>
-        <!-- Ejes HRV: SVG donut 4 segmentos — geometría 480×480, cx=cy=240, r_outer=186, r_inner=94, r_label=140 -->
-        <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:500px;display:block;margin:0 auto 16px;" role="img" aria-label="Cuatro ejes de acción de Huerto Roma Verde">
+        <!-- Ejes HRV: 640×640, cx=cy=320, r_outer=256, r_inner=128, r_label=175, max-width=640px -->
+        <!-- Geometría: 256/186 = 1.376× respecto al original 480px -->
+        <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px;display:block;margin:0 auto 16px;" role="img" aria-label="Cuatro ejes de acción de Huerto Roma Verde">
           <!-- Seg 0: Producción — cuadrante sup-der -->
-          <path d="M 240,54 A 186,186 0 0,1 426,240 L 334,240 A 94,94 0 0,0 240,146 Z" fill="#2C5F2E"/>
+          <path d="M 320,64 A 256,256 0 0,1 576,320 L 448,320 A 128,128 0 0,0 320,192 Z" fill="#2C5F2E"/>
           <!-- Seg 1: Formación — cuadrante inf-der -->
-          <path d="M 426,240 A 186,186 0 0,1 240,426 L 240,334 A 94,94 0 0,0 334,240 Z" fill="#4A7C59"/>
+          <path d="M 576,320 A 256,256 0 0,1 320,576 L 320,448 A 128,128 0 0,0 448,320 Z" fill="#4A7C59"/>
           <!-- Seg 2: Comunidad — cuadrante inf-izq -->
-          <path d="M 240,426 A 186,186 0 0,1 54,240 L 146,240 A 94,94 0 0,0 240,334 Z" fill="#8B5E3C"/>
+          <path d="M 320,576 A 256,256 0 0,1 64,320 L 192,320 A 128,128 0 0,0 320,448 Z" fill="#8B5E3C"/>
           <!-- Seg 3: Referencia — cuadrante sup-izq -->
-          <path d="M 54,240 A 186,186 0 0,1 240,54 L 240,146 A 94,94 0 0,0 146,240 Z" fill="#5C8C6A"/>
-          <!-- Separadores -->
-          <line x1="240" y1="240" x2="240" y2="54" stroke="white" stroke-width="2.5" opacity="0.5"/>
-          <line x1="240" y1="240" x2="426" y2="240" stroke="white" stroke-width="2.5" opacity="0.5"/>
-          <line x1="240" y1="240" x2="240" y2="426" stroke="white" stroke-width="2.5" opacity="0.5"/>
-          <line x1="240" y1="240" x2="54" y2="240" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <path d="M 64,320 A 256,256 0 0,1 320,64 L 320,192 A 128,128 0 0,0 192,320 Z" fill="#5C8C6A"/>
+          <!-- Separadores del borde interior al exterior -->
+          <line x1="320" y1="192" x2="320" y2="64" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <line x1="448" y1="320" x2="576" y2="320" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <line x1="320" y1="448" x2="320" y2="576" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <line x1="192" y1="320" x2="64" y2="320" stroke="white" stroke-width="2.5" opacity="0.5"/>
           <!-- Centro -->
-          <circle cx="240" cy="240" r="92" fill="#1a3d1c"/>
-          <text x="240" y="233" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#A8C5A0" letter-spacing="0.1em">HUERTO</text>
-          <text x="240" y="253" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#A8C5A0" letter-spacing="0.1em">ROMA VERDE</text>
-          <!-- Labels: r_label=140 → mid -45°:(339,141) | 45°:(339,339) | 135°:(141,339) | 225°:(141,141) -->
-          <!-- Seg 0: Producción — sup-der -->
-          <text x="339" y="104" text-anchor="middle" font-size="24" fill="white">🌿</text>
-          <text x="339" y="134" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Producción</text>
-          <text x="339" y="159" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">Agroecología</text>
-          <text x="339" y="177" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">urbana activa</text>
-          <!-- Seg 1: Formación — inf-der -->
-          <text x="339" y="299" text-anchor="middle" font-size="24" fill="white">📖</text>
-          <text x="339" y="329" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Formación</text>
-          <text x="339" y="354" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">Capacitación para</text>
-          <text x="339" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">micro-empresarios</text>
-          <!-- Seg 2: Comunidad — inf-izq -->
-          <text x="141" y="299" text-anchor="middle" font-size="24" fill="white">🤝</text>
-          <text x="141" y="329" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Comunidad</text>
-          <text x="141" y="354" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">Nodo de encuentro</text>
-          <text x="141" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">del ecosistema local</text>
-          <!-- Seg 3: Referencia — sup-izq -->
-          <text x="141" y="104" text-anchor="middle" font-size="24" fill="white">🗺️</text>
-          <text x="141" y="134" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Referencia</text>
-          <text x="141" y="159" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">Modelo replicable</text>
-          <text x="141" y="177" text-anchor="middle" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.9)">sin perder identidad</text>
+          <circle cx="320" cy="320" r="125" fill="#1a3d1c"/>
+          <circle cx="320" cy="320" r="127" fill="none" stroke="rgba(168,197,160,0.35)" stroke-width="2"/>
+          <text x="320" y="312" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#A8C5A0" letter-spacing="0.1em">HUERTO</text>
+          <text x="320" y="334" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#A8C5A0" letter-spacing="0.1em">ROMA VERDE</text>
+          <!-- Labels: r_label=175 → centros a ±123.7px del centro → (444,196),(444,444),(196,444),(196,196) -->
+          <!-- Seg 0: Producción (sup-der) — centro (444, 196) -->
+          <text x="444" y="141" text-anchor="middle" font-size="26" fill="white">🌿</text>
+          <text x="444" y="174" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Producción</text>
+          <text x="444" y="204" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Agroecología</text>
+          <text x="444" y="220" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">urbana activa</text>
+          <!-- Seg 1: Formación (inf-der) — centro (444, 444) -->
+          <text x="444" y="389" text-anchor="middle" font-size="26" fill="white">📖</text>
+          <text x="444" y="422" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Formación</text>
+          <text x="444" y="452" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Capacitación para</text>
+          <text x="444" y="468" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">micro-empresarios</text>
+          <!-- Seg 2: Comunidad (inf-izq) — centro (196, 444) -->
+          <text x="196" y="389" text-anchor="middle" font-size="26" fill="white">🤝</text>
+          <text x="196" y="422" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Comunidad</text>
+          <text x="196" y="452" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Nodo de encuentro</text>
+          <text x="196" y="468" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">del ecosistema local</text>
+          <!-- Seg 3: Referencia (sup-izq) — centro (196, 196) -->
+          <text x="196" y="141" text-anchor="middle" font-size="26" fill="white">🗺️</text>
+          <text x="196" y="174" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Referencia</text>
+          <text x="196" y="204" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Modelo replicable</text>
+          <text x="196" y="220" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">sin perder identidad</text>
         </svg>
         <div class="hrv-quote" style="text-align: left;">
           <p style="font-size: 0.92rem;">En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
@@ -944,7 +946,7 @@
         <div class="hrv-circulo-titulo">Hikuri Regenerativo</div>
         <!-- Hikuri: geometría 760×700, cx=380, cy=360, r_outer=230, r_inner=108, r_mid=169, r_borde=285 -->
         <!-- viewBox 760×700 → max-width 680px; escala 0.895 → etiquetas internas 14px SVG ≈ 12.5px CSS -->
-        <svg viewBox="0 0 760 700" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto 16px;">
+        <svg viewBox="0 0 760 700" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;display:block;margin:0 auto 16px;">
           <!-- 7 gajos — cx=380, cy=360, r_outer=230, r_inner=108 -->
           <!-- Seg 0: Organización Social -->
           <path d="M 380,130 A 230,230 0 0,1 559.8,216.6 L 464.4,292.7 A 108,108 0 0,0 380,252 Z" fill="#4A7C59"/>
@@ -990,9 +992,9 @@
           <!-- Seg 4 (Tecnologías): mid 141.43° → (248, 465) -->
           <text x="248" y="458" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Tecnologías</text>
           <text x="248" y="475" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Adecuadas</text>
-          <!-- Seg 5 (Economía): mid 192.86° → (215, 398) -->
-          <text x="215" y="390" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Economía</text>
-          <text x="215" y="407" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Biosocial</text>
+          <!-- Seg 5 (Economía): mid 192.86° → cx=215, cy=322 [sin(192.86°)=−0.2225] -->
+          <text x="215" y="315" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Economía</text>
+          <text x="215" y="332" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Biosocial</text>
           <!-- Seg 6 (Cultura Reg.): mid 244.29° → (307, 208) -->
           <text x="307" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Cultura</text>
           <text x="307" y="217" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Regenerativa</text>
@@ -1007,8 +1009,8 @@
           <text x="380" y="649" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="0.8">PODER ECONÓMICO</text>
           <!-- Seg 4 mid 141.43° → ENTROPÍA (157, 538) -->
           <text x="157" y="541" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">ENTROPÍA</text>
-          <!-- Seg 5 mid 192.86° → SIMPOIESIS (102, 423) -->
-          <text x="102" y="427" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">SIMPOIESIS</text>
+          <!-- Seg 5 mid 192.86° → SIMPOIESIS (102, 297) [sin negativo, simétrico a AUTOPOIESIS] -->
+          <text x="102" y="300" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">SIMPOIESIS</text>
           <!-- Seg 6 mid 244.29° → SINTROPÍA (256, 103) -->
           <text x="256" y="107" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">SINTROPÍA</text>
         </svg>
