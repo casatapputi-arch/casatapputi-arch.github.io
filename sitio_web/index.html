@@ -406,7 +406,7 @@
 
     /* ===================== FOOTER ===================== */
     footer { background: var(--carbon); color: rgba(245,240,232,0.7); padding: 48px 0 24px; font-family: sans-serif; }
-    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand h3 { color: var(--arena); margin-bottom: 8px; font-family: 'Georgia', serif; }
     .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
     .footer-links h4 { color: var(--arena); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
@@ -445,6 +445,62 @@
       .caracol-circulos { grid-template-columns: 1fr 1fr; }
       .circulo { border-right: none; border-bottom: 1px solid var(--borde); }
       .circulo:nth-child(odd) { border-right: 1px solid var(--borde); }
+    }
+
+    /* ===================== GALERÍA INTRODUCTORIA ===================== */
+    .galeria-hero { background: var(--carbon); }
+    .galeria-hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      height: 360px; overflow: hidden;
+    }
+    .galeria-hero-img { overflow: hidden; position: relative; }
+    .galeria-hero-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease; display: block;
+    }
+    .galeria-hero-img:hover img { transform: scale(1.05); }
+    .galeria-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(28,28,28,0.72));
+      color: rgba(245,240,232,0.9); font-family: sans-serif;
+      font-size: 0.76rem; font-style: italic;
+      padding: 20px 14px 10px; letter-spacing: 0.04em;
+    }
+    @media (max-width: 768px) {
+      .galeria-hero-grid { grid-template-columns: 1fr; height: auto; }
+      .galeria-hero-img { height: 220px; }
+    }
+
+    /* ===================== TESTIMONIAL ===================== */
+    .testimonial-section { background: var(--verde-oscuro); padding: 80px 0; }
+    .testimonial-inner {
+      max-width: 820px; margin: 0 auto; text-align: center;
+    }
+    .testimonial-marks {
+      font-size: 6rem; line-height: 0.75; color: var(--verde-claro);
+      font-family: 'Georgia', serif; opacity: 0.55;
+      display: block; margin-bottom: 8px;
+    }
+    .testimonial-text {
+      font-family: 'Georgia', serif; font-size: 1.3rem; font-style: italic;
+      line-height: 1.75; color: var(--arena); margin-bottom: 28px;
+    }
+    .testimonial-autor {
+      font-family: sans-serif; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.13em;
+      color: var(--verde-claro);
+    }
+
+    /* ===================== MAPA ===================== */
+    .mapa-wrap {
+      margin-top: 52px; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 24px var(--sombra);
+    }
+    .mapa-wrap iframe { display: block; width: 100%; height: 380px; border: 0; }
+    .mapa-titulo {
+      font-family: sans-serif; font-size: 0.8rem; font-weight: bold;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      color: var(--gris-suave); margin-bottom: 12px;
     }
   </style>
 </head>
@@ -531,6 +587,33 @@
           <p style="font-size: 0.75rem; color: var(--gris-suave); font-family: sans-serif; margin-top: 8px; letter-spacing: 0.06em; text-transform: uppercase;">Fundación E.B.A.C.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA INTRODUCTORIA -->
+<section class="galeria-hero" aria-label="Actividades de Fundación E.B.A.C.">
+  <div class="galeria-hero-grid">
+    <div class="galeria-hero-img">
+      <img
+        src="https://images.pexels.com/photos/5480234/pexels-photo-5480234.jpeg?auto=compress&cs=tinysrgb&w=900"
+        alt="Manos sosteniendo frasco con hierbas medicinales — herbolaría"
+        loading="lazy" />
+      <div class="galeria-caption">Herbolaría y conocimiento medicinal</div>
+    </div>
+    <div class="galeria-hero-img">
+      <img
+        src="https://images.pexels.com/photos/5756752/pexels-photo-5756752.jpeg?auto=compress&cs=tinysrgb&w=900"
+        alt="Taller educativo comunitario con luz natural — formación"
+        loading="lazy" />
+      <div class="galeria-caption">Formación y vinculación comunitaria</div>
+    </div>
+    <div class="galeria-hero-img">
+      <img
+        src="https://images.pexels.com/photos/26178998/pexels-photo-26178998.jpeg?auto=compress&cs=tinysrgb&w=900"
+        alt="Huerto urbano con plantas en macetas y ciudad al fondo — territorio verde"
+        loading="lazy" />
+      <div class="galeria-caption">Territorio verde — Huerto Roma Verde</div>
     </div>
   </div>
 </section>
@@ -1084,6 +1167,18 @@
   </div>
 </section>
 
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="container">
+    <div class="testimonial-inner">
+      <span class="testimonial-marks">&ldquo;</span>
+      <p class="testimonial-text">Somos y seremos siempre una A.C. en vías de construcción y mejoramiento, adaptándonos a las necesidades sociales del lugar y seres vivos en donde nos encontremos, expresando con ello que somos una A.C. joven, constituida en Abril 11 del 2018, por nuestro fundador, el Dr. José Enrique Barrera Ayala, joven emprendedor y visionario, con un enfoque inclusivo, ecológico y humanista, aportando con su gran experiencia parte del trabajo intelectual y consultoría dentro de esta gran familia, de la cual puedes ser parte.</p>
+      <p class="testimonial-autor">Dr. José Enrique Barrera Ayala &nbsp;·&nbsp; Fundador y Presidente, Fundación E.B.A.C.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section class="section" id="contacto">
   <div class="container">
@@ -1149,6 +1244,18 @@
         </form>
         <p id="form-success" style="display:none; text-align:center; color: var(--verde-medio); margin-top: 16px; font-family: sans-serif;">✓ Mensaje recibido. Te contactaremos pronto.</p>
       </div>
+
+    <!-- MAPA INTERACTIVO -->
+    <div class="mapa-titulo">📍 Cómo llegar — Jalapa 234, Roma Sur, Alcaldía Cuauhtémoc, CDMX</div>
+    <div class="mapa-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Jalapa+234+Roma+Sur+Ciudad+de+Mexico&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Fundación E.B.A.C. — Jalapa 234, Roma Sur, Ciudad de México">
+      </iframe>
+    </div>
     </div>
   </div>
 </section>
@@ -1168,6 +1275,15 @@
           <li><a href="#relaciones">Cómo nos relacionamos</a></li>
           <li><a href="#antecedentes">Antecedentes</a></li>
           <li><a href="#hrv">Huerto Roma Verde</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Horarios</h4>
+        <ul>
+          <li><a href="#contacto" style="cursor:default; pointer-events:none; color:inherit;">Lun – Vie &nbsp; 09:00 – 18:00</a></li>
+          <li><a href="#contacto" style="cursor:default; pointer-events:none; color:inherit;">Sábado &nbsp; 10:00 – 14:00</a></li>
+          <li><a href="mailto:enriquebarreraac.contacto@gmail.com">enriquebarreraac.contacto@gmail.com</a></li>
+          <li><a href="tel:+525563707034">55 6370 7034</a></li>
         </ul>
       </div>
       <div class="footer-links">
