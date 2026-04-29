@@ -1215,19 +1215,19 @@
         <form onsubmit="handleSubmit(event)">
           <div class="form-group">
             <label>Nombre completo</label>
-            <input type="text" placeholder="Tu nombre" required />
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
           </div>
           <div class="form-group">
             <label>Correo electrónico</label>
-            <input type="email" placeholder="correo@institución.edu.mx" required />
+            <input type="email" name="email" placeholder="correo@institución.edu.mx" required />
           </div>
           <div class="form-group">
             <label>Institución u organización</label>
-            <input type="text" placeholder="Universidad / Empresa / Organización" />
+            <input type="text" name="institucion" placeholder="Universidad / Empresa / Organización" />
           </div>
           <div class="form-group">
             <label>Perfil</label>
-            <select>
+            <select name="perfil">
               <option value="">Selecciona tu perfil</option>
               <option>Universidad / Institución educativa</option>
               <option>Estudiante</option>
@@ -1238,7 +1238,7 @@
           </div>
           <div class="form-group">
             <label>Mensaje</label>
-            <textarea placeholder="Cuéntanos brevemente tu interés en el programa..."></textarea>
+            <textarea name="mensaje" placeholder="Cuéntanos brevemente tu interés en el programa..."></textarea>
           </div>
           <button type="submit" class="form-submit">Enviar mensaje</button>
         </form>
@@ -1319,11 +1319,32 @@
     event.target.classList.add('active');
   }
 
-  // Form — pendiente: conectar a backend real cuando exista correo institucional
   function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('form-success').style.display = 'block';
-    e.target.style.display = 'none';
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    fetch('https://formspree.io/f/meenjlrr', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(r => {
+      if (r.ok) {
+        document.getElementById('form-success').style.display = 'block';
+        form.style.display = 'none';
+      } else {
+        btn.textContent = 'Enviar mensaje';
+        btn.disabled = false;
+        alert('Error al enviar. Intenta de nuevo o escríbenos directamente.');
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Enviar mensaje';
+      btn.disabled = false;
+      alert('Sin conexión. Verifica tu internet e intenta de nuevo.');
+    });
   }
 
   // Smooth reveal on scroll
