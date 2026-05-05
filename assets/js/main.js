@@ -12,11 +12,33 @@ function showTab(tabName) {
   event.target.classList.add('active');
 }
 
-// Form — pendiente: conectar a backend real cuando exista correo institucional
+// Form — Formspree
 function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('form-success').style.display = 'block';
-  e.target.style.display = 'none';
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  fetch('https://formspree.io/f/meenjlrr', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(r => {
+    if (r.ok) {
+      document.getElementById('form-success').style.display = 'block';
+      form.style.display = 'none';
+    } else {
+      btn.textContent = 'Enviar mensaje';
+      btn.disabled = false;
+      alert('Error al enviar. Intenta de nuevo o escríbenos directamente.');
+    }
+  })
+  .catch(() => {
+    btn.textContent = 'Enviar mensaje';
+    btn.disabled = false;
+    alert('Error al enviar. Intenta de nuevo o escríbenos directamente.');
+  });
 }
 
 // Smooth reveal on scroll
