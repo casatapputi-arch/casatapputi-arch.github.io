@@ -14,7 +14,7 @@
 2. Sincronizar al repo con:
 
 ```bash
-rsync -av --exclude='.DS_Store' \
+rsync -av --exclude='.DS_Store' --exclude='galeria/' \
   "~/Desktop/Casa Tapputi/Programa de Fortalecimiento de Economías Locales/sitio_web/" \
   "~/casatapputi-arch.github.io/"
 ```
