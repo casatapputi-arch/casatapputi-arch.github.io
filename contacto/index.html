@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Fundación E.B.A.C.</title>
+  <meta name="description" content="Inicia el proceso de colaboración con Fundación E.B.A.C. Correo, teléfono, dirección y formulario de contacto." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+<!-- AVISO -->
+<div class="aviso-banner">
+  Fundación E.B.A.C. — Por una vida digna.
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/assets/images/logo/LOGO_EBAC.png"
+           onerror="document.getElementById('logo-fallback').style.display='flex'; this.style.display='none';"
+           alt="Logotipo Fundación E.B.A.C."
+           style="height:144px;width:auto;" />
+      <div class="nav-logo-fallback" id="logo-fallback" style="display:none;">
+        Fundación E.B.A.C.<span>Por una vida digna</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/quienes/">Quiénes somos</a></li>
+      <li><a href="/como-nos-relacionamos/">Cómo nos relacionamos</a></li>
+      <li><a href="/programas/">El programa</a></li>
+      <li><a href="/participa/">Participa</a></li>
+      <li><a href="/antecedentes/">Antecedentes</a></li>
+      <li><a href="/galeria/">Galería</a></li>
+    </ul>
+    <a href="/contacto/" class="nav-cta" aria-current="page">Iniciar contacto</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/quienes/" onclick="toggleMenu()">Quiénes somos</a>
+  <a href="/como-nos-relacionamos/" onclick="toggleMenu()">Cómo nos relacionamos</a>
+  <a href="/programas/" onclick="toggleMenu()">El programa</a>
+  <a href="/participa/" onclick="toggleMenu()">Participa</a>
+  <a href="/antecedentes/" onclick="toggleMenu()">Antecedentes</a>
+  <a href="/galeria/" onclick="toggleMenu()">Galería</a>
+  <a href="/contacto/" class="btn-primary" style="text-align:center;" onclick="toggleMenu()">Iniciar contacto</a>
+</div>
+
+<!-- CONTACTO -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <div class="tag">Vinculación</div>
+        <h2 class="section-title">Inicia el proceso de colaboración</h2>
+        <p style="font-family: sans-serif; margin-bottom: 32px;">Si eres coordinador de vinculación, director académico, microempresario o estudiante interesado, el primer paso es un mensaje. Fundación E.B.A.C. responde y evalúa cada caso de forma individual.</p>
+        <div class="contacto-item">
+          <div class="contacto-icon">📧</div>
+          <div>
+            <h4>Correo de contacto</h4>
+            <p>enriquebarreraac.contacto@gmail.com</p>
+            <p class="contacto-nota">Correo provisional · Correo institucional en proceso</p>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-icon">📍</div>
+          <div>
+            <h4>Nodo operativo</h4>
+            <p>Huerto Roma Verde · Jalapa 234, Roma Sur<br>Alcaldía Cuauhtémoc, Ciudad de México</p>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-icon">🗺️</div>
+          <div>
+            <h4>Alcance territorial</h4>
+            <p>Ciudad de México · Estado de México · Expansión gradual a otros estados</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>¿Quieres colaborar?</h3>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="correo@institución.edu.mx" required />
+          </div>
+          <div class="form-group">
+            <label>Institución u organización</label>
+            <input type="text" placeholder="Universidad / Empresa / Organización" />
+          </div>
+          <div class="form-group">
+            <label>Perfil</label>
+            <select>
+              <option value="">Selecciona tu perfil</option>
+              <option>Universidad / Institución educativa</option>
+              <option>Estudiante</option>
+              <option>Microempresario / Emprendedor</option>
+              <option>Organización aliada</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea placeholder="Cuéntanos brevemente tu interés en el programa..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensaje</button>
+        </form>
+        <p id="form-success" style="display:none; text-align:center; color: var(--verde-medio); margin-top: 16px; font-family: sans-serif;">✓ Mensaje recibido. Te contactaremos pronto.</p>
+      </div>
+
+    <!-- MAPA INTERACTIVO -->
+    <div class="mapa-titulo">📍 Cómo llegar — Jalapa 234, Roma Sur, Alcaldía Cuauhtémoc, CDMX</div>
+    <div class="mapa-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Jalapa+234+Roma+Sur+Ciudad+de+Mexico&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Fundación E.B.A.C. — Jalapa 234, Roma Sur, Ciudad de México">
+      </iframe>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Fundación E.B.A.C.</h3>
+        <p>Por una vida digna. Programa de Fortalecimiento de Economías Locales — Segunda Etapa. Vinculación universitaria con impacto territorial en la Ciudad de México.</p>
+      </div>
+      <div class="footer-links">
+        <h4>La Fundación</h4>
+        <ul>
+          <li><a href="/quienes/">Quiénes somos</a></li>
+          <li><a href="/como-nos-relacionamos/">Cómo nos relacionamos</a></li>
+          <li><a href="/antecedentes/">Antecedentes</a></li>
+          <li><a href="/programas/#hrv">Huerto Roma Verde</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Horarios</h4>
+        <ul>
+          <li><a style="cursor:default; pointer-events:none; color:inherit;">Lun – Vie &nbsp; 09:00 – 18:00</a></li>
+          <li><a style="cursor:default; pointer-events:none; color:inherit;">Sábado &nbsp; 10:00 – 14:00</a></li>
+          <li><a href="mailto:enriquebarreraac.contacto@gmail.com">enriquebarreraac.contacto@gmail.com</a></li>
+          <li><a href="tel:+525563707034">55 6370 7034</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>El Programa</h4>
+        <ul>
+          <li><a href="/programas/">Qué es</a></li>
+          <li><a href="/participa/">Para universidades</a></li>
+          <li><a href="/participa/">Para estudiantes</a></li>
+          <li><a href="/participa/">Para microempresas</a></li>
+          <li><a href="/contacto/">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fundación E.B.A.C. — Todos los derechos reservados.</span>
+      <span style="color: rgba(245,240,232,0.4); font-style: italic;">Por una vida digna.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

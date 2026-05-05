@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El programa — Fundación E.B.A.C.</title>
+  <meta name="description" content="El Programa de Fortalecimiento de Economías Locales: modelo, modalidades y nodo operativo en Huerto Roma Verde." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+<!-- AVISO -->
+<div class="aviso-banner">
+  Fundación E.B.A.C. — Por una vida digna.
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/assets/images/logo/LOGO_EBAC.png"
+           onerror="document.getElementById('logo-fallback').style.display='flex'; this.style.display='none';"
+           alt="Logotipo Fundación E.B.A.C."
+           style="height:144px;width:auto;" />
+      <div class="nav-logo-fallback" id="logo-fallback" style="display:none;">
+        Fundación E.B.A.C.<span>Por una vida digna</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/quienes/">Quiénes somos</a></li>
+      <li><a href="/como-nos-relacionamos/">Cómo nos relacionamos</a></li>
+      <li><a href="/programas/" aria-current="page">El programa</a></li>
+      <li><a href="/participa/">Participa</a></li>
+      <li><a href="/antecedentes/">Antecedentes</a></li>
+      <li><a href="/galeria/">Galería</a></li>
+    </ul>
+    <a href="/contacto/" class="nav-cta">Iniciar contacto</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/quienes/" onclick="toggleMenu()">Quiénes somos</a>
+  <a href="/como-nos-relacionamos/" onclick="toggleMenu()">Cómo nos relacionamos</a>
+  <a href="/programas/" onclick="toggleMenu()">El programa</a>
+  <a href="/participa/" onclick="toggleMenu()">Participa</a>
+  <a href="/antecedentes/" onclick="toggleMenu()">Antecedentes</a>
+  <a href="/galeria/" onclick="toggleMenu()">Galería</a>
+  <a href="/contacto/" class="btn-primary" style="text-align:center;" onclick="toggleMenu()">Iniciar contacto</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <a href="/" class="breadcrumb">← Inicio</a>
+    <h1 class="page-header-title">El programa</h1>
+    <p class="page-header-subtitle">Modelo de vinculación universitaria, modalidades de participación y nodo operativo en Huerto Roma Verde.</p>
+  </div>
+</div>
+
+<!-- EL PROGRAMA -->
+<section class="section" id="programa">
+  <div class="container">
+    <div class="tag">El modelo</div>
+    <h2 class="section-title">Un programa que forma con experiencia real</h2>
+    <p class="section-subtitle">La claridad sobre lo que el Programa es —y lo que no es— no es una limitación: es lo que permite que cada convenio sea éticamente sólido, jurídicamente preciso y operativamente replicable.</p>
+    <div class="programa-grid">
+      <div class="programa-si">
+        <h3 style="color: var(--verde-medio); margin-bottom: 20px; font-size: 1.1rem;">✓ Lo que sí es</h3>
+        <ul class="check-list">
+          <li>Modelo estructurado de vinculación universitaria con impacto territorial</li>
+          <li>Formación práctica real en proyectos productivos agroecológicos</li>
+          <li>Acompañamiento técnico y formativo a microempresas sin costo</li>
+          <li>Coordinación, capacitación y seguimiento a cargo de la Fundación</li>
+          <li>Compatible con servicio social, prácticas profesionales y estadías</li>
+          <li>Trayectoria formativa progresiva de hasta tres años (opcional)</li>
+          <li>Emisión de Carta de Recomendación Institucional por trayectoria completa</li>
+          <li>Experiencia documentable y verificable para estudiantes</li>
+        </ul>
+      </div>
+      <div class="programa-no">
+        <h3 style="color: #C0392B; margin-bottom: 20px; font-size: 1.1rem;">✕ Lo que no es</h3>
+        <ul class="x-list">
+          <li>Asistencialismo ni otorgamiento de financiamiento</li>
+          <li>Voluntariado improvisado sin estructura ni seguimiento</li>
+          <li>Mano de obra estudiantil gratuita para microempresas</li>
+          <li>Gestión del negocio ni sustitución de empleo</li>
+          <li>Simulación académica de horas sin aprendizaje real</li>
+          <li>Carga operativa adicional para las universidades</li>
+          <li>Programa de nuevo inicio: la Segunda Etapa retoma un modelo ejecutado 2018–2021</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODALIDADES DE VINCULACIÓN -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="tag">Modalidades</div>
+    <h2 class="section-title">Cuatro figuras de participación académica</h2>
+    <p class="section-subtitle">El Programa se adapta a los distintos marcos jurídico-académicos mediante los cuales un estudiante puede incorporarse. Cada modalidad tiene su sentido, su alcance y su exigencia.</p>
+    <div class="modalidades-grid">
+      <div class="modalidad-card">
+        <h3>Servicio social</h3>
+        <p style="font-family: sans-serif; font-size: 0.9rem; color: var(--gris-suave);">Retribución ético-ciudadana a la sociedad. Se integra a las horas reglamentarias de la institución educativa correspondiente.</p>
+      </div>
+      <div class="modalidad-card">
+        <h3>Prácticas profesionales</h3>
+        <p style="font-family: sans-serif; font-size: 0.9rem; color: var(--gris-suave);">Entrenamiento técnico en un entorno real para la adquisición de competencias laborales específicas.</p>
+      </div>
+      <div class="modalidad-card">
+        <h3>Estadías</h3>
+        <p style="font-family: sans-serif; font-size: 0.9rem; color: var(--gris-suave);">Inmersión para resolver un problema específico mediante un proyecto técnico acompañado institucionalmente.</p>
+      </div>
+      <div class="modalidad-card">
+        <h3>Voluntariado</h3>
+        <p style="font-family: sans-serif; font-size: 0.9rem; color: var(--gris-suave);">Participación civil opcional conceptualizada como consultoría pro-bono dentro del ecosistema del Programa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HRV -->
+<section class="section section-dark" id="hrv">
+  <div class="container">
+    <div class="tag" style="background: rgba(168,197,160,0.3); color: var(--verde-claro);">Nodo operativo</div>
+    <h2 class="section-title" style="color: var(--arena);">Huerto Roma Verde: el laboratorio vivo</h2>
+    <p style="color: rgba(245,240,232,0.85); font-family: sans-serif; font-size: 0.95rem; margin-bottom: 8px; max-width: 680px;">HRV no es solo la sede: es la prueba tangible del modelo. Un espacio donde la producción agroecológica, la formación universitaria y el fortalecimiento comunitario convergen en un lugar que se puede visitar, tocar y verificar.</p>
+    <div class="hrv-dos-circulos">
+      <!-- Círculo 1: los cuatro ejes de acción de HRV -->
+      <div class="hrv-circulo-wrap">
+        <div class="hrv-circulo-titulo">Ejes de acción</div>
+        <!-- Ejes HRV: 720×720, cx=cy=360, r_outer=300, r_inner=128, r_label=214, max-width=720px -->
+        <!-- Anchura disponible en diagonal (d=100): 202.9px → "sin perder identidad" (≈156px) cabe con margen -->
+        <svg viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;display:block;margin:0 auto 16px;" role="img" aria-label="Cuatro ejes de acción de Huerto Roma Verde">
+          <!-- Segmentos — cx=cy=360, r_outer=300, r_inner=128 -->
+          <path d="M 360,60 A 300,300 0 0,1 660,360 L 488,360 A 128,128 0 0,0 360,232 Z" fill="#2C5F2E"/>
+          <path d="M 660,360 A 300,300 0 0,1 360,660 L 360,488 A 128,128 0 0,0 488,360 Z" fill="#4A7C59"/>
+          <path d="M 360,660 A 300,300 0 0,1 60,360 L 232,360 A 128,128 0 0,0 360,488 Z" fill="#8B5E3C"/>
+          <path d="M 60,360 A 300,300 0 0,1 360,60 L 360,232 A 128,128 0 0,0 232,360 Z" fill="#5C8C6A"/>
+          <!-- Separadores del borde interior al exterior -->
+          <line x1="360" y1="232" x2="360" y2="60" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <line x1="488" y1="360" x2="660" y2="360" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <line x1="360" y1="488" x2="360" y2="660" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <line x1="232" y1="360" x2="60" y2="360" stroke="white" stroke-width="2.5" opacity="0.5"/>
+          <!-- Centro -->
+          <circle cx="360" cy="360" r="125" fill="#1a3d1c"/>
+          <circle cx="360" cy="360" r="127" fill="none" stroke="rgba(168,197,160,0.35)" stroke-width="2"/>
+          <text x="360" y="352" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#A8C5A0" letter-spacing="0.1em">HUERTO</text>
+          <text x="360" y="374" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#A8C5A0" letter-spacing="0.1em">ROMA VERDE</text>
+          <!-- Etiquetas — r_label=214 → centros geométricos (511,209),(511,511),(209,511),(209,209) -->
+          <!-- Seg 0: Producción (sup-der) x=511, cy=209 -->
+          <text x="511" y="154" text-anchor="middle" font-size="26" fill="white">🌿</text>
+          <text x="511" y="187" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Producción</text>
+          <text x="511" y="217" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Agroecología</text>
+          <text x="511" y="233" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">urbana activa</text>
+          <!-- Seg 1: Formación (inf-der) x=519 cargado a la derecha, cy=511 -->
+          <text x="519" y="456" text-anchor="middle" font-size="26" fill="white">📖</text>
+          <text x="519" y="489" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Formación</text>
+          <text x="519" y="519" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Capacitación para</text>
+          <text x="519" y="535" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">micro-empresarios</text>
+          <!-- Seg 2: Comunidad (inf-izq) x=200 cargado a la izquierda, cy=511 -->
+          <text x="200" y="456" text-anchor="middle" font-size="26" fill="white">🤝</text>
+          <text x="200" y="489" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Comunidad</text>
+          <text x="200" y="519" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Nodo de encuentro</text>
+          <text x="200" y="535" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">del ecosistema local</text>
+          <!-- Seg 3: Referencia (sup-izq) x=195 cargado a la izquierda, cy=209 -->
+          <text x="195" y="154" text-anchor="middle" font-size="26" fill="white">🗺️</text>
+          <text x="195" y="187" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">Referencia</text>
+          <text x="195" y="217" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">Modelo replicable</text>
+          <text x="195" y="233" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">sin perder identidad</text>
+        </svg>
+        <div class="hrv-quote" style="text-align: left;">
+          <p style="font-size: 0.92rem;">En Huerto Roma Verde el Programa deja de ser una propuesta documental y se convierte en una experiencia compartida: un espacio verificable donde los acuerdos de vinculación se encarnan en un territorio concreto.</p>
+        </div>
+      </div>
+      <!-- Círculo 2: Hikuri Regenerativo — paradigma GeoBioSistémico de HRV -->
+      <div class="hrv-circulo-wrap">
+        <div class="hrv-circulo-titulo">Hikuri Regenerativo</div>
+        <!-- Hikuri: geometría 760×700, cx=380, cy=360, r_outer=230, r_inner=108, r_mid=169, r_borde=285 -->
+        <!-- viewBox 760×700 → max-width 680px; escala 0.895 → etiquetas internas 14px SVG ≈ 12.5px CSS -->
+        <svg viewBox="0 0 760 700" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1026px;display:block;margin:0 auto 16px;">
+          <!-- 7 gajos — cx=380, cy=360, r_outer=230, r_inner=108 -->
+          <!-- Seg 0: Organización Social -->
+          <path d="M 380,130 A 230,230 0 0,1 559.8,216.6 L 464.4,292.7 A 108,108 0 0,0 380,252 Z" fill="#4A7C59"/>
+          <!-- Seg 1: Integración Ambiental -->
+          <path d="M 559.8,216.6 A 230,230 0 0,1 604.2,411.2 L 485.3,384.0 A 108,108 0 0,0 464.4,292.7 Z" fill="#2C5F2E"/>
+          <!-- Seg 2: Salud Esencial -->
+          <path d="M 604.2,411.2 A 230,230 0 0,1 479.8,567.2 L 426.9,457.3 A 108,108 0 0,0 485.3,384.0 Z" fill="#7BA393"/>
+          <!-- Seg 3: Habitabilidad Adecuada -->
+          <path d="M 479.8,567.2 A 230,230 0 0,1 280.2,567.2 L 333.1,457.3 A 108,108 0 0,0 426.9,457.3 Z" fill="#8B5E3C"/>
+          <!-- Seg 4: Tecnologías Adecuadas -->
+          <path d="M 280.2,567.2 A 230,230 0 0,1 155.8,411.2 L 274.7,384.0 A 108,108 0 0,0 333.1,457.3 Z" fill="#6B8A70"/>
+          <!-- Seg 5: Economía Biosocial -->
+          <path d="M 155.8,411.2 A 230,230 0 0,1 200.2,216.6 L 295.6,292.7 A 108,108 0 0,0 274.7,384.0 Z" fill="#B07845"/>
+          <!-- Seg 6: Cultura Regenerativa -->
+          <path d="M 200.2,216.6 A 230,230 0 0,1 380,130 L 380,252 A 108,108 0 0,0 295.6,292.7 Z" fill="#5C8C6A"/>
+          <!-- Separadores -->
+          <line x1="380" y1="252" x2="380" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="464.4" y1="292.7" x2="559.8" y2="216.6" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="485.3" y1="384.0" x2="604.2" y2="411.2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="426.9" y1="457.3" x2="479.8" y2="567.2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="333.1" y1="457.3" x2="280.2" y2="567.2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="274.7" y1="384.0" x2="155.8" y2="411.2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="295.6" y1="292.7" x2="200.2" y2="216.6" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <!-- Círculo central -->
+          <circle cx="380" cy="360" r="108" fill="#1C1C1C"/>
+          <circle cx="380" cy="360" r="105" fill="none" stroke="rgba(168,197,160,0.4)" stroke-width="1.5"/>
+          <text x="380" y="350" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#A8C5A0" letter-spacing="1.5">HIKURI</text>
+          <text x="380" y="371" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#A8C5A0" letter-spacing="1.5">REGENERATIVO</text>
+          <text x="380" y="391" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(245,240,232,0.6)" letter-spacing="2.5">HRV</text>
+          <!-- Etiquetas internas — r_mid=169, font 14px -->
+          <text x="453" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Organización</text>
+          <text x="453" y="217" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Social</text>
+          <text x="545" y="315" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Integración</text>
+          <text x="545" y="332" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Ambiental</text>
+          <text x="512" y="458" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Salud</text>
+          <text x="512" y="475" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Esencial</text>
+          <text x="380" y="522" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Habitabilidad</text>
+          <text x="380" y="539" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Adecuada</text>
+          <text x="248" y="458" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Tecnologías</text>
+          <text x="248" y="475" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Adecuadas</text>
+          <text x="215" y="315" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Economía</text>
+          <text x="215" y="332" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Biosocial</text>
+          <text x="307" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Cultura</text>
+          <text x="307" y="217" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">Regenerativa</text>
+          <!-- Conceptos de borde — r_borde=285, opacidad total, font 11px -->
+          <text x="504" y="107" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">RESILIENCIA</text>
+          <text x="658" y="300" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">AUTOPOIESIS</text>
+          <text x="603" y="541" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">BIENESTAR</text>
+          <text x="380" y="649" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="0.8">PODER ECONÓMICO</text>
+          <text x="157" y="541" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">ENTROPÍA</text>
+          <text x="102" y="300" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">SIMPOIESIS</text>
+          <text x="256" y="107" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8C5A0" letter-spacing="1.5">SINTROPÍA</text>
+        </svg>
+        <p style="font-family: sans-serif; font-size: 0.78rem; color: rgba(245,240,232,0.6); text-align: center; font-style: italic; margin: 0;">Paradigma GeoBioSistémico — 7 gajos, cada uno con sus células y principios de acción.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Fundación E.B.A.C.</h3>
+        <p>Por una vida digna. Programa de Fortalecimiento de Economías Locales — Segunda Etapa. Vinculación universitaria con impacto territorial en la Ciudad de México.</p>
+      </div>
+      <div class="footer-links">
+        <h4>La Fundación</h4>
+        <ul>
+          <li><a href="/quienes/">Quiénes somos</a></li>
+          <li><a href="/como-nos-relacionamos/">Cómo nos relacionamos</a></li>
+          <li><a href="/antecedentes/">Antecedentes</a></li>
+          <li><a href="/programas/#hrv">Huerto Roma Verde</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Horarios</h4>
+        <ul>
+          <li><a style="cursor:default; pointer-events:none; color:inherit;">Lun – Vie &nbsp; 09:00 – 18:00</a></li>
+          <li><a style="cursor:default; pointer-events:none; color:inherit;">Sábado &nbsp; 10:00 – 14:00</a></li>
+          <li><a href="mailto:enriquebarreraac.contacto@gmail.com">enriquebarreraac.contacto@gmail.com</a></li>
+          <li><a href="tel:+525563707034">55 6370 7034</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>El Programa</h4>
+        <ul>
+          <li><a href="/programas/">Qué es</a></li>
+          <li><a href="/participa/">Para universidades</a></li>
+          <li><a href="/participa/">Para estudiantes</a></li>
+          <li><a href="/participa/">Para microempresas</a></li>
+          <li><a href="/contacto/">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fundación E.B.A.C. — Todos los derechos reservados.</span>
+      <span style="color: rgba(245,240,232,0.4); font-style: italic;">Por una vida digna.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
