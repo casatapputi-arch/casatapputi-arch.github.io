@@ -6,7 +6,7 @@
 |-----------|------|
 | Local (fuente) | `~/Desktop/Casa Tapputi/Programa de Fortalecimiento de Economías Locales/sitio_web/` |
 | Deploy (GitHub Pages) | `~/casatapputi-arch.github.io/` (ROOT del repo) |
-| Dominio | fundacionebac.com.mx (DNS Telmex → GitHub Pages) |
+| Dominio | fundacionebac.com (DNS Cloudflare → GitHub Pages; correo vía Cloudflare Email Routing) |
 
 ## Flujo de edición
 
