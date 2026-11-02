@@ -397,6 +397,12 @@ nav {
   font-size: 0.95rem; cursor: pointer; transition: background 0.2s;
 }
 .form-submit:hover { background: var(--verde-medio); }
+.privacy-notice, .form-static-note { font-family: sans-serif; font-size: 0.78rem; line-height: 1.55; color: var(--gris-suave); }
+.privacy-notice { margin: 4px 0 14px; }
+.consent-group { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 18px; }
+.consent-group input { width: 18px; height: 18px; margin-top: 4px; flex: 0 0 auto; accent-color: var(--verde-oscuro); }
+.consent-group label { font-family: sans-serif; font-size: 0.8rem; line-height: 1.5; color: var(--gris-texto); }
+.form-static-note { margin: 16px 0 0; }
 
 /* ===================== FOOTER ===================== */
 footer { background: var(--carbon); color: rgba(245,240,232,0.7); padding: 48px 0 24px; font-family: sans-serif; }
@@ -645,3 +651,54 @@ footer { background: var(--carbon); color: rgba(245,240,232,0.7); padding: 48px 
 @media (min-width: 769px) and (max-width: 1024px) {
   .secciones-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Ajustes móviles: conservan intacta la composición de escritorio. */
+@media (max-width: 768px) {
+  .container { padding-inline: 20px; }
+  .nav-inner { min-height: 64px; padding-inline: 20px; }
+  .nav-logo img { height: 56px !important; }
+  .hamburger { align-items: center; justify-content: center; width: 44px; height: 44px; }
+  .hamburger:focus-visible, .mobile-menu a:focus-visible { outline: 3px solid var(--tierra); outline-offset: 3px; }
+  .mobile-menu { display: none; padding: 8px 20px 16px; box-shadow: 0 10px 18px rgba(28, 28, 28, 0.1); }
+  .mobile-menu.is-open { display: block; }
+  .mobile-menu a { padding: 12px 0; }
+  .mobile-menu .btn-primary { margin-top: 12px; padding: 12px 16px; }
+  .hero { padding: 64px 0 56px; }
+  .hero-inner, .quienes-grid, .programa-grid, .hrv-inner, .contacto-grid { gap: 32px; }
+  .hero h1 { font-size: clamp(2rem, 10vw, 2.7rem); }
+  .hero-actions { gap: 12px; }
+  .hero-actions .btn-primary, .hero-actions .btn-secondary { width: 100%; text-align: center; }
+  .hero-stats { padding: 24px 16px; gap: 20px; }
+  .stat-num { font-size: 2.25rem; }
+  .page-header { padding: 56px 0 44px; }
+  .page-header-title { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .section-subtitle { margin-bottom: 32px; }
+  .entity-card, .relacion-card, .programa-si, .programa-no, .modalidad-card, .form-card { padding: 24px 20px; }
+  .caracol-section { padding: 28px 20px; border-radius: 12px; }
+  .caracol-circulos { grid-template-columns: 1fr; }
+  .circulo, .circulo:nth-child(odd) { border-right: none; border-bottom: 1px solid var(--borde); }
+  .circulo:last-child { border-bottom: none; }
+  .circulo-flecha { display: none; }
+  .trabajan-cabeza, .pertenecen-cabeza { font-size: 1.7rem; }
+  .hrv-features { grid-template-columns: 1fr; }
+  .actores-tabs { gap: 10px; }
+  .tab-btn { flex: 1 1 100%; }
+  .footer-inner { gap: 28px; margin-bottom: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .mapa-wrap iframe { min-height: 280px; }
+}
+
+@media (max-width: 380px) {
+  .container, .nav-inner { padding-inline: 16px; }
+  .section { padding-block: 48px; }
+  .hero-flow .flow-actor { min-width: 0; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .stat-divider { display: none; }
+  .form-card { padding: 20px 16px; }
+}
+
+/* Botones del bloque "Primer paso" de Participa: contraste sobre fondo verde oscuro */
+.cta-perfil .btn-primary { background: var(--arena); color: var(--verde-oscuro); border-color: var(--arena); }
+.cta-perfil .btn-primary:hover { background: white; color: var(--verde-oscuro); }
+.cta-perfil .btn-secondary { background: transparent; color: var(--arena); border-color: var(--arena); }
+.cta-perfil .btn-secondary:hover { background: var(--arena); color: var(--verde-oscuro); }
