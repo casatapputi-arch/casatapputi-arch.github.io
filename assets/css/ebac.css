@@ -203,3 +203,14 @@ h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.1
   .pestanas button{padding:12px 10px;font-size:.95rem}
   .pie .cols{grid-template-columns:1fr}
 }
+
+/* Cifras de impacto (Inicio) */
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cifras{background:var(--verde);color:#EDE6D8;padding:64px 0 48px}
+.cifras dl{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.cifras dl>div{display:flex;flex-direction:column-reverse;justify-content:flex-end;padding:0 28px;border-left:1px solid rgba(237,230,216,.2)}
+.cifras dl>div:first-child{padding-left:0;border-left:0}
+.cifras dd{font-family:"Young Serif",Georgia,serif;font-size:clamp(2.4rem,4.4vw,3.6rem);line-height:1;color:var(--arena);font-variant-numeric:tabular-nums}
+.cifras dt{margin-top:12px;font-size:.98rem;max-width:22ch}
+.cifras p{margin-top:36px;font-size:.85rem;color:#B9B3A6}
+@media (max-width:900px){.cifras dl{grid-template-columns:1fr 1fr;row-gap:36px}.cifras dl>div:nth-child(3){padding-left:0;border-left:0}}
