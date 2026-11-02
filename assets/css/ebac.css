@@ -214,3 +214,4 @@ h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.1
 .cifras dt{margin-top:12px;font-size:.98rem;max-width:22ch}
 .cifras p{margin-top:36px;font-size:.85rem;color:#B9B3A6}
 @media (max-width:900px){.cifras dl{grid-template-columns:1fr 1fr;row-gap:36px}.cifras dl>div:nth-child(3){padding-left:0;border-left:0}}
+.entrada{font-size:clamp(1.15rem,1.6vw,1.35rem);line-height:1.6}
