@@ -96,6 +96,9 @@ h3{font:600 1.1rem/1.3 var(--garamond);color:var(--verde)}
 
 /* Reproducción del documento */
 .reproduccion{aspect-ratio:3/2;border:1px dashed var(--plata);display:grid;place-items:center;text-align:center;padding:20px;background:rgba(255,255,255,.35)}
+.reproduccion.con-copia{aspect-ratio:auto;border:0;padding:0;background:none;display:block}
+.reproduccion.con-copia img{display:block;width:100%;border:1px solid var(--linea);box-shadow:0 12px 30px -18px rgba(0,0,0,.45)}
+.reproduccion .acciones{text-align:center;margin-top:14px}
 .reproduccion p{margin:0;color:var(--piedra);max-width:38ch;font-style:italic}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 24px;border:0;
   background:var(--verde);color:#fff;font:600 .9rem var(--romana);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none}

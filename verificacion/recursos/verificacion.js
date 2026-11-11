@@ -125,17 +125,25 @@
       caja.replaceChildren(el("p", { texto: "La reproducción digital autorizada del documento se integrará en este espacio." }));
       return;
     }
-    var boton = el("button", { clase: "btn", type: "button", texto: "Ver copia digital autorizada" });
-    var msg = el("p", { "aria-live": "polite" });
-    boton.addEventListener("click", function () {
-      boton.disabled = true; msg.textContent = "";
-      servidor({ accion: "copia", token: TOKEN }).then(function (j) {
-        if (j && j.disponible && /^https:\/\//.test(j.url)) window.location.assign(j.url);
-        else msg.textContent = "La copia digital no está disponible en este momento.";
-      }).catch(function () { msg.textContent = "No fue posible abrir la copia digital. Intente de nuevo."; })
-        .then(function () { boton.disabled = false; });
-    });
-    caja.replaceChildren(el("div", null, [boton, msg]));
+    caja.replaceChildren(el("p", { texto: "Cargando la copia digital autorizada…" }));
+    servidor({ accion: "copia", token: TOKEN }).then(function (j) {
+      if (j && j.disponible && j.base64 && /^(image\/(jpeg|png|webp)|application\/pdf)$/.test(j.mime)) {
+        var bin = atob(j.base64), bytes = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        var url = URL.createObjectURL(new Blob([bytes], { type: j.mime }));
+        var abrir = el("a", { clase: "btn", href: url, target: "_blank", rel: "noopener", texto: "Ver en tamaño completo" });
+        if (j.mime === "application/pdf") { caja.replaceChildren(el("div", null, [abrir])); return; }
+        caja.classList.add("con-copia");
+        caja.replaceChildren(
+          el("img", { src: url, alt: "Copia digital autorizada del " + (TIPOS[d.tipo] || "documento").toLowerCase() + " de " + d.titular }),
+          el("div", { clase: "acciones" }, [abrir])
+        );
+      } else if (j && j.disponible && /^https:\/\//.test(j.url)) {
+        caja.replaceChildren(el("div", null, [el("a", { clase: "btn", href: j.url, target: "_blank", rel: "noopener", texto: "Ver copia digital autorizada" })]));
+      } else {
+        caja.replaceChildren(el("p", { texto: "La copia digital no está disponible en este momento." }));
+      }
+    }).catch(function () { caja.replaceChildren(el("p", { texto: "No fue posible cargar la copia digital. Recargue la página." })); });
   }
 
   function mostrar(d) {

@@ -6,6 +6,7 @@ import { chromium } from "playwright";
 const SITIO = process.env.SITIO || "http://127.0.0.1:8800";
 const SB = "https://prueba-ficticia.supabase.co";
 const T = (c) => c.repeat(64);
+const PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==";
 const areas = ["I", "II", "III", "IV", "V"].map((n, i) => ({ numeral: n, titulo: `Área ${i + 1}`, descripcion: `Descripción ${i + 1}.` }));
 const base = {
   encontrado: true, folio: "EBAC-PRUE-2025-01-007", tipo: "reconocimiento", titular: "Persona Ficticia",
@@ -42,7 +43,7 @@ async function pagina(ancho, configurado = true) {
     let res = { encontrado: false };
     if (e.accion === "consultar") res = REG[e.token] || { encontrado: false };
     if (e.accion === "buscar") res = e.folio === "EBAC-PRUE-2025-01-007" && e.codigo === "ABCD2345" ? { encontrado: true, token: T("b") } : { encontrado: false };
-    if (e.accion === "copia") res = { disponible: true, url: SB + "/storage/v1/object/sign/verificacion-diplomas/x.pdf?token=y" };
+    if (e.accion === "copia") res = { disponible: true, mime: "image/png", base64: PNG };
     r.fulfill({ contentType: "application/json", body: JSON.stringify(res) });
   });
   await p.route(SB + "/storage/v1/object/sign/**", (r) => r.fulfill({ contentType: "text/plain", body: "copia" }));
@@ -94,8 +95,10 @@ for (const ancho of [390, 1280]) {
   ok(await p.evaluate(() => !window.__xss) && (await texto(p, "#identificacion")).includes("<img"), `[${disp}] datos con HTML se muestran como texto (sin inyección)`);
 
   await ir(p, T("f")); await p.waitForSelector(".estado.vigente");
-  await Promise.all([p.waitForURL(/object\/sign/), p.click("#reproduccion button")]);
-  ok(true, `[${disp}] botón de copia digital abre el enlace firmado`);
+  await p.waitForSelector("#reproduccion.con-copia img");
+  ok(await p.evaluate(() => { const i = document.querySelector("#reproduccion img"); return i.complete && i.naturalWidth > 0 && i.src.startsWith("blob:"); }),
+     `[${disp}] la copia digital se muestra en la ficha`);
+  ok(await p.locator("#reproduccion a.btn").count() === 1, `[${disp}] botón «Ver en tamaño completo»`);
 
   await p.goto(`${SITIO}/verificacion/`);
   await p.fill("input[name=folio]", "ebac-prue-2025-01-007"); await p.fill("input[name=codigo]", "abcd2345");
