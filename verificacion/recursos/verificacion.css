@@ -1,116 +1,132 @@
 /* Sistema Institucional de Verificación Académica — Fundación E.B.A.C.
-   Presentación provisional y discreta: la identidad visual definitiva se integrará después.
-   Paleta: verde institucional profundo, gris piedra e ivory. */
+   Estética alineada al reconocimiento: papel gris piedra, verde profundo, mayúsculas romanas espaciadas
+   (Cinzel) y texto en Garamond (EB Garamond). Sin sellos ni monogramas hasta que estén aprobados. */
 :root{
-  --verde:#1F3B2D; --verde-2:#2C4F3D; --verde-claro:#E3EBE4;
-  --piedra:#6E716B; --piedra-2:#9A9C95; --linea:#DCD8CD;
-  --ivory:#F8F5EC; --papel:#FFFDF7; --tinta:#1D2420;
-  --ambar:#8A6516; --ambar-f:#F6EDD6; --rojo:#8E3B22; --rojo-f:#F6E3DC;
-  --serif:"Young Serif", Georgia, "Times New Roman", serif;
-  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --verde:#173826; --verde-2:#22472F; --verde-claro:#E1E8E2;
+  --tinta:#1B201D; --grafito:#3B413D; --piedra:#6C706B; --plata:#A9ABA6; --linea:#C9C8C3;
+  --papel:#E9E8E4; --papel-2:#F3F2EF; --blanco:#FBFBF9;
+  --ambar:#7A5A14; --ambar-f:#F1E9D3; --rojo:#7E2F1C; --rojo-f:#F2E1DA;
+  --romana:"Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --garamond:"EB Garamond", Garamond, Georgia, serif;
+  --papel-textura:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .4  0 0 0 0 .4  0 0 0 0 .38  0 0 0 .09 0'/></filter><rect width='240' height='240' filter='url(%23f)'/></svg>");
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ivory);color:var(--tinta);font:400 1rem/1.6 var(--sans)}
+body{margin:0;color:var(--tinta);font:400 1.12rem/1.55 var(--garamond);background:var(--papel) var(--papel-textura)}
 img{max-width:100%;height:auto}
 a{color:var(--verde-2)}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
-.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.marco{width:min(880px,100% - 32px);margin-inline:auto}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--verde);outline-offset:3px}
+.marco{width:min(920px,100% - 32px);margin-inline:auto}
 
-/* Encabezado institucional */
-.v-cab{background:var(--papel);border-bottom:1px solid var(--linea)}
-.v-cab .marco{display:flex;align-items:center;gap:18px;padding-block:14px}
-.v-cab .logo img{height:68px;width:auto;display:block}
-.v-cab .titulos{border-left:1px solid var(--linea);padding-left:18px;line-height:1.25}
-.v-cab .titulos b{display:block;font:400 1.05rem/1.2 var(--serif);color:var(--verde)}
-.v-cab .titulos span{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--piedra)}
-@media (max-width:520px){
-  .v-cab .marco{flex-direction:column;align-items:flex-start;gap:10px}
-  .v-cab .titulos{border-left:0;padding-left:0;border-top:1px solid var(--linea);padding-top:10px;width:100%}
+/* Encabezado institucional (como el reconocimiento: logotipo | nombre) */
+.v-cab{padding-top:22px}
+.v-cab .marco{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+.v-cab .logo img{height:76px;width:auto;display:block;mix-blend-mode:multiply}
+.v-cab .titulos{border-left:1.5px solid var(--tinta);padding-left:22px;line-height:1.1}
+.v-cab .titulos b{display:block;font:700 clamp(1.25rem,4.2vw,2rem)/1.1 var(--romana);letter-spacing:.04em;color:var(--tinta)}
+.v-cab .titulos span{display:block;margin-top:6px;font:600 .74rem var(--romana);letter-spacing:.32em;text-transform:uppercase;color:var(--grafito)}
+.v-cab .regla{height:1.5px;background:var(--tinta);opacity:.75;margin-top:18px;flex-basis:100%}
+@media (max-width:560px){
+  .v-cab .marco{flex-direction:column;gap:10px}
+  .v-cab .titulos{border-left:0;padding-left:0;text-align:center}
+  .v-cab .titulos span{letter-spacing:.2em}
+  .v-cab .logo img{height:64px}
+  .v-cab .regla{width:100%}
 }
 
-main{padding-block:28px 56px}
-h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--verde);line-height:1.2}
-h1{font-size:clamp(1.55rem,4.6vw,2.1rem);margin:0 0 6px}
-h2{font-size:1.25rem;margin:0 0 14px}
-h3{font-size:1.02rem;margin:0 0 4px}
-.sobre{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--piedra);margin:0 0 6px;font-weight:600}
+main{padding-block:22px 56px}
+h1,h2,h3{margin:0;font-weight:600}
+.sobre{font:600 .78rem var(--romana);letter-spacing:.3em;text-transform:uppercase;color:var(--grafito);text-align:center;margin:0 0 4px}
+h1{font:700 clamp(1.35rem,5vw,2.2rem)/1.15 var(--romana);letter-spacing:.06em;text-align:center;text-transform:uppercase;color:var(--tinta)}
+h2{font:600 .95rem/1.3 var(--romana);letter-spacing:.2em;text-transform:uppercase;color:var(--verde);margin-bottom:16px}
+h3{font:600 1.1rem/1.3 var(--garamond);color:var(--verde)}
 
-.tarjeta{background:var(--papel);border:1px solid var(--linea);border-radius:10px;padding:22px clamp(18px,4vw,30px);margin-top:18px}
-.tarjeta > :last-child{margin-bottom:0}
+/* Filete con rombo (como bajo «RECONOCIMIENTO») */
+.filete{display:flex;align-items:center;gap:14px;margin:12px auto 18px;max-width:640px}
+.filete::before,.filete::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--tinta) 18%,var(--tinta) 82%,transparent);opacity:.85}
+.filete span{width:10px;height:10px;background:var(--tinta);transform:rotate(45deg)}
+
+.hoja{background:var(--papel-2) var(--papel-textura);border:1px solid var(--linea);padding:26px clamp(18px,4.5vw,40px);margin-top:20px;
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 10px 30px -22px rgba(0,0,0,.35)}
+.hoja > :last-child{margin-bottom:0}
 
 /* Estado */
-.estado{display:flex;gap:14px;align-items:flex-start;border-radius:10px;padding:16px 18px;margin-top:18px;border:1px solid}
-.estado .icono{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.estado{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;margin-top:6px;border:1px solid;border-left-width:4px;font-size:1.05rem}
+.estado .icono{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 .95rem var(--garamond)}
 .estado p{margin:2px 0 0}
-.estado strong{display:block;font-size:1.02rem}
-.estado.vigente{background:var(--verde-claro);border-color:#B9CCBD}
-.estado.vigente .icono{background:var(--verde);color:#fff}
-.estado.corregido{background:var(--verde-claro);border-color:#B9CCBD}
-.estado.corregido .icono{background:var(--verde-2);color:#fff}
-.estado.pendiente,.estado.preparacion{background:var(--ambar-f);border-color:#E3D2A6}
+.estado strong{display:block;font:600 .9rem/1.4 var(--romana);letter-spacing:.12em;text-transform:uppercase}
+.estado.vigente,.estado.corregido{background:var(--verde-claro);border-color:#B4C5B8;border-left-color:var(--verde)}
+.estado.vigente .icono,.estado.corregido .icono{background:var(--verde);color:#fff}
+.estado.pendiente,.estado.preparacion{background:var(--ambar-f);border-color:#DCCB9E;border-left-color:var(--ambar)}
 .estado.pendiente .icono,.estado.preparacion .icono{background:var(--ambar);color:#fff}
-.estado.revocado,.estado.noencontrado{background:var(--rojo-f);border-color:#E5C3B6}
+.estado.revocado,.estado.noencontrado{background:var(--rojo-f);border-color:#DDBCB0;border-left-color:var(--rojo)}
 .estado.revocado .icono,.estado.noencontrado .icono{background:var(--rojo);color:#fff}
-.estado.cargando{background:var(--papel);border-color:var(--linea)}
+.estado.cargando{background:var(--papel-2);border-color:var(--linea)}
 .estado.cargando .icono{border:3px solid var(--linea);border-top-color:var(--verde);animation:gira 1s linear infinite}
 @keyframes gira{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.estado.cargando .icono{animation:none}}
+.aviso-previa{background:var(--tinta);color:#fff;text-align:center;font:600 .8rem var(--romana);letter-spacing:.12em;padding:8px 12px}
 
-.aviso-previa{background:var(--tinta);color:#fff;text-align:center;font-size:.85rem;padding:8px 12px;letter-spacing:.02em}
+/* Portada del documento (como el cuerpo del reconocimiento) */
+.portada{text-align:center}
+.portada .otorga{font:600 .82rem var(--romana);letter-spacing:.34em;text-transform:uppercase;color:var(--grafito);margin:0}
+.portada .tipo{font:700 clamp(1.7rem,7vw,3rem)/1.1 var(--romana);letter-spacing:.07em;text-transform:uppercase;margin:6px 0 0;color:var(--tinta)}
+.portada .a{font:600 .9rem var(--romana);margin:0 0 4px;color:var(--grafito)}
+.portada .titular{font:italic 700 clamp(1.9rem,7.5vw,3.3rem)/1.1 var(--garamond);color:var(--tinta);margin:0;overflow-wrap:anywhere}
+.portada .motivo{margin:10px 0 14px;font-size:1.15rem}
+.banda{background:var(--verde);color:#F4F4F1;padding:14px 18px;margin:0 auto;max-width:720px;
+  font:600 clamp(1rem,3.6vw,1.6rem)/1.25 var(--romana);letter-spacing:.12em;text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(0,0,0,.35)}
+.portada .detalle{margin:14px auto 0;max-width:640px;font-size:1.12rem}
 
-/* Identificación */
-.datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;margin:0}
-.datos div{border-top:1px solid var(--linea);padding-top:10px}
-.datos dt{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--piedra);font-weight:600}
-.datos dd{margin:2px 0 0;font-size:1.02rem;overflow-wrap:anywhere}
-.datos .ancha{grid-column:1 / -1}
-.datos .titular dd{font:400 1.35rem/1.25 var(--serif);color:var(--verde)}
-.datos .folio dd{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;letter-spacing:.02em}
-@media (max-width:560px){.datos{grid-template-columns:1fr}}
+/* Ficha de datos (como el recuadro inferior izquierdo) */
+.datos{margin:0;border-left:2px solid var(--tinta);padding-left:18px;display:grid;grid-template-columns:max-content 1fr;gap:6px 22px}
+.datos dt{color:var(--grafito)}
+.datos dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+@media (max-width:520px){.datos{grid-template-columns:1fr;gap:0}.datos dd{margin-bottom:8px}}
 
 /* Información académica */
-.texto p{margin:0 0 12px}
-.areas{list-style:none;padding:0;margin:8px 0 0;counter-reset:a}
-.areas li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:14px 0;border-top:1px solid var(--linea)}
-.areas .num{font:400 1rem/1.4 var(--serif);color:var(--piedra)}
-.areas p{margin:0;color:#3A423D}
-.nota{font-size:.85rem;color:var(--piedra);margin-top:14px}
+.texto p{margin:0 0 14px}
+.texto h3{margin-bottom:2px}
+.areas{list-style:none;padding:0;margin:6px 0 0}
+.areas li{display:grid;grid-template-columns:48px 1fr;gap:2px 12px;padding:14px 0;border-top:1px solid var(--linea)}
+.areas .num{font:700 1rem/1.5 var(--romana);color:var(--verde)}
+.areas p{margin:0;color:var(--grafito)}
+.nota{font-size:.95rem;font-style:italic;color:var(--piedra);margin-top:14px}
 
 /* Reproducción del documento */
-.reproduccion{aspect-ratio:11/8.5;border:1.5px dashed var(--piedra-2);border-radius:8px;display:grid;place-items:center;
-  text-align:center;padding:20px;background:repeating-linear-gradient(135deg,transparent 0 12px,rgba(110,113,107,.05) 12px 24px)}
-.reproduccion p{margin:0;color:var(--piedra);max-width:38ch;font-size:.92rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 20px;border-radius:6px;
-  border:0;background:var(--verde);color:#fff;font:600 1rem var(--sans);cursor:pointer;text-decoration:none}
+.reproduccion{aspect-ratio:3/2;border:1px dashed var(--plata);display:grid;place-items:center;text-align:center;padding:20px;background:rgba(255,255,255,.35)}
+.reproduccion p{margin:0;color:var(--piedra);max-width:38ch;font-style:italic}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 24px;border:0;
+  background:var(--verde);color:#fff;font:600 .9rem var(--romana);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none}
 .btn:hover{background:var(--verde-2)}
 .btn[disabled]{opacity:.6;cursor:progress}
 
-/* Autoridad emisora */
-.firma{border-left:3px solid var(--verde);padding-left:16px}
+/* Autoridad emisora (como el bloque de firma) */
+.firma{text-align:center;max-width:460px;margin:8px auto 0;padding-top:12px;border-top:1.5px solid var(--tinta)}
 .firma p{margin:0}
-.firma .nombre{font:400 1.12rem/1.3 var(--serif);color:var(--verde)}
-.firma .cargo{color:#3A423D}
+.firma .nombre{font:700 1.3rem/1.3 var(--garamond)}
+.firma .cargo{font-size:1.12rem;color:var(--grafito)}
 
-/* Aviso institucional */
-.aviso{font-size:.88rem;color:#4A514C;border-top:1px solid var(--linea);padding-top:16px;margin-top:26px}
+/* Aviso */
+.aviso{font-size:1rem;color:var(--grafito);border-top:1px solid var(--linea);padding-top:16px;margin-top:28px}
 .aviso p{margin:0 0 8px}
 
-/* Formulario de consulta */
-form.consulta{display:grid;gap:14px;margin-top:6px}
-form.consulta label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
-form.consulta input{font:500 1.05rem var(--sans);padding:12px 14px;border:1px solid var(--piedra-2);border-radius:6px;background:#fff;
-  text-transform:uppercase;width:100%}
+/* Consulta por folio */
+.intro{text-align:center;max-width:62ch;margin:0 auto}
+form.consulta{display:grid;gap:16px;margin-top:6px}
+form.consulta label{display:grid;gap:4px;font-weight:600}
+form.consulta input{font:500 1.15rem var(--garamond);letter-spacing:.04em;padding:12px 14px;border:1px solid var(--plata);background:var(--blanco);
+  text-transform:uppercase;width:100%;border-radius:0}
 form.consulta small{font-weight:400;color:var(--piedra)}
-.pasos{padding-left:1.2em;margin:0}
+.pasos{padding-left:1.3em;margin:0}
 .pasos li{margin-bottom:6px}
 
-.v-pie{border-top:1px solid var(--linea);background:var(--papel);font-size:.85rem;color:var(--piedra)}
+.v-pie{border-top:1px solid var(--linea);font-size:.98rem;color:var(--grafito)}
 .v-pie .marco{padding-block:18px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
 
 @media print{
   body{background:#fff}
-  .v-cab,.tarjeta,.estado{border-color:#bbb}
+  .hoja{box-shadow:none;background:#fff}
   .btn,.v-pie,.aviso-previa{display:none}
 }

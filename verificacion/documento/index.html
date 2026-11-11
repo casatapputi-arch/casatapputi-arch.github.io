@@ -6,24 +6,26 @@
 <title>Verificación de documento académico — Fundación E.B.A.C.</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src https://*.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://*.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/verificacion/recursos/verificacion.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/verificacion/recursos/verificacion.css?v=3">
 <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 </head>
 <body data-pagina="ficha">
 <header class="v-cab">
   <div class="marco">
-    <a class="logo" href="/"><img src="/assets/images/logo/LOGO_EBAC.png" alt="Fundación E.B.A.C." width="120" height="68"></a>
-    <div class="titulos"><b>Fundación E.B.A.C.</b><span>Sistema Institucional de Verificación Académica</span></div>
+    <a class="logo" href="/"><img src="/assets/images/logo/LOGO_EBAC.png" alt="Fundación E.B.A.C., por una vida digna" width="134" height="76"></a>
+    <div class="titulos"><b>FUNDACIÓN E.B.A.C.</b><span>Estado de México</span></div>
+    <div class="regla" aria-hidden="true"></div>
   </div>
 </header>
 
 <main class="marco" id="contenido">
-  <p class="sobre">Consulta de registro</p>
-  <h1 id="titulo">Verificación de documento académico</h1>
+  <p class="sobre">Sistema Institucional de Verificación Académica</p>
+  <h1>Verificación de documento</h1>
+  <div class="filete" aria-hidden="true"><span></span></div>
 
   <div id="estado" class="estado cargando" role="status" aria-live="polite">
     <span class="icono" aria-hidden="true"></span>
@@ -31,19 +33,21 @@
   </div>
   <noscript><div class="estado noencontrado"><span class="icono">!</span><div><strong>Se requiere JavaScript</strong><p>Active JavaScript en su navegador para consultar el registro.</p></div></div></noscript>
 
-  <section class="tarjeta" id="bloque-identificacion" aria-labelledby="id-t" hidden>
+  <section class="hoja portada" id="portada" aria-label="Documento" hidden></section>
+
+  <section class="hoja" id="bloque-identificacion" aria-labelledby="id-t" hidden>
     <h2 id="id-t">Identificación del documento</h2>
     <dl class="datos" id="identificacion"></dl>
   </section>
 
-  <section class="tarjeta" id="academica" hidden></section>
+  <section class="hoja" id="academica" hidden></section>
 
-  <section class="tarjeta" id="bloque-reproduccion" aria-labelledby="rep-t" hidden>
+  <section class="hoja" id="bloque-reproduccion" aria-labelledby="rep-t" hidden>
     <h2 id="rep-t">Reproducción del documento</h2>
     <div class="reproduccion" id="reproduccion"></div>
   </section>
 
-  <section class="tarjeta" id="autoridad" hidden></section>
+  <section class="hoja" id="autoridad" hidden></section>
 
   <div class="aviso" role="note">
     <p>La presente consulta permite verificar la emisión y el estado de un documento académico en los registros de Fundación E.B.A.C. Esta verificación no constituye por sí misma reconocimiento de validez oficial de estudios por parte de una autoridad educativa.</p>
@@ -54,7 +58,7 @@
 <footer class="v-pie">
   <div class="marco"><span>© 2026 Fundación E.B.A.C.</span><a href="/verificacion/">Consultar otro documento</a></div>
 </footer>
-<script src="/verificacion/recursos/config.js?v=2"></script>
-<script src="/verificacion/recursos/verificacion.js?v=2"></script>
+<script src="/verificacion/recursos/config.js?v=3"></script>
+<script src="/verificacion/recursos/verificacion.js?v=3"></script>
 </body>
 </html>

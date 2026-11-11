@@ -34,10 +34,9 @@ async function pagina(ancho, configurado = true) {
   const ctx = await navegador.newContext({ viewport: { width: ancho, height: 900 } });
   const p = await ctx.newPage();
   await p.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
-  if (configurado) {
-    await p.route("**/verificacion/recursos/config.js*", (r) => r.fulfill({ contentType: "application/javascript",
-      body: `window.VERIFICACION_CONFIG={supabaseUrl:"${SB}",anonKey:"llave-publica-ficticia"};` }));
-  }
+  await p.route("**/verificacion/recursos/config.js*", (r) => r.fulfill({ contentType: "application/javascript",
+    body: configurado ? `window.VERIFICACION_CONFIG={supabaseUrl:"${SB}",anonKey:"llave-publica-ficticia"};`
+                      : `window.VERIFICACION_CONFIG={supabaseUrl:"",anonKey:""};` }));
   await p.route(SB + "/functions/v1/verificacion", async (r) => {
     const e = r.request().postDataJSON();
     let res = { encontrado: false };
@@ -50,7 +49,7 @@ async function pagina(ancho, configurado = true) {
   return p;
 }
 const ficha = (t) => `${SITIO}/verificacion/documento/#${t}`;
-const texto = (p, s) => p.locator(s).innerText();
+const texto = (p, s) => p.locator(s).textContent();
 const ir = async (p, t) => { await p.goto("about:blank"); await p.goto(ficha(t)); };
 const desborda = (p) => p.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
 
@@ -77,6 +76,8 @@ for (const ancho of [390, 1280]) {
   ok(await p.locator(".areas li").count() === 5, `[${disp}] vigente: 5 áreas de formación`);
   ok((await texto(p, "#identificacion")).includes("5 de marzo de 2025"), `[${disp}] fecha en español`);
   ok((await texto(p, "#reproduccion")).includes("se integrará"), `[${disp}] espacio reservado para el diploma`);
+  ok((await texto(p, ".portada .banda")).includes("Programa de Prueba") && (await texto(p, ".portada .titular")) === "Persona Ficticia",
+     `[${disp}] portada como el reconocimiento: nombre y banda del programa`);
   ok((await texto(p, "#autoridad")).includes("Firmante Ficticio"), `[${disp}] autoridad emisora`);
   ok((await texto(p, ".aviso")).includes("no constituye por sí misma reconocimiento de validez oficial"), `[${disp}] aviso institucional`);
   ok(!(await desborda(p)), `[${disp}] sin desbordamiento horizontal`);

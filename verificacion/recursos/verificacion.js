@@ -65,24 +65,33 @@
   }
 
   // ───────── Ficha ─────────
-  function dato(etq, valor, clase) {
-    return el("div", clase ? { clase: clase } : null, [el("dt", { texto: etq }), el("dd", { texto: valor })]);
-  }
   function pintarFicha(d) {
     var ed = d.edicion || {}, pr = d.programa || {};
-    $("#titulo").textContent = (TIPOS[d.tipo] || "Documento") + " académico";
+    var edicion = (ed.nombre ? ed.nombre + " edición" : "Edición " + ed.numero);
 
-    $("#identificacion").replaceChildren(
-      dato("Titular", d.titular, "ancha titular"),
-      dato("Folio", d.folio, "folio"),
-      dato("Tipo de documento", TIPOS[d.tipo] || d.tipo),
-      dato("Capacitación", pr.nombre, "ancha"),
-      dato("Edición", (ed.nombre ? ed.nombre + " edición" : "Edición " + ed.numero) + (ed.anio ? " · " + ed.anio : "")),
-      dato("Horas acreditadas", d.horas + " horas"),
-      dato("Fecha de expedición", fecha(d.fecha_expedicion)),
-      ed.participantes_total ? dato("Participante", "Número " + d.numero_participante + " de " + ed.participantes_total)
-                             : dato("Participante", "Número " + d.numero_participante)
+    // Portada: misma composición que el reconocimiento impreso.
+    $("#portada").replaceChildren(
+      el("p", { clase: "otorga", texto: "Fundación E.B.A.C. otorga el presente" }),
+      el("p", { clase: "tipo", texto: TIPOS[d.tipo] || "Documento" }),
+      el("div", { clase: "filete", "aria-hidden": "true" }, [el("span")]),
+      el("p", { clase: "a", texto: "A" }),
+      el("p", { clase: "titular", texto: d.titular }),
+      el("p", { clase: "motivo", texto: "Por haber acreditado satisfactoriamente la capacitación:" }),
+      el("p", { clase: "banda", texto: pr.nombre }),
+      el("p", { clase: "detalle", texto: "Con una duración de " + d.horas + " horas, correspondiente a la " + edicion +
+        (ed.anio ? " (" + ed.anio + ")" : "") + ", del programa de formación de Fundación E.B.A.C., Estado de México." })
     );
+
+    $("#identificacion").replaceChildren.apply($("#identificacion"), [
+      ["Titular:", d.titular],
+      ["Folio académico:", d.folio],
+      ["Documento:", TIPOS[d.tipo] || d.tipo],
+      ["Capacitación:", pr.nombre],
+      ["Edición:", edicion],
+      ["Participante:", "Número " + d.numero_participante + (ed.participantes_total ? " de " + ed.participantes_total : "")],
+      ["Duración:", d.horas + " horas"],
+      ["Fecha de expedición:", fecha(d.fecha_expedicion)]
+    ].reduce(function (a, f) { a.push(el("dt", { texto: f[0] }), el("dd", { texto: f[1] })); return a; }, []));
 
     var acad = $("#academica");
     var areas = el("ol", { clase: "areas" }, (pr.areas || []).map(function (a) {
@@ -107,7 +116,7 @@
     );
 
     pintarReproduccion(d);
-    ["#bloque-identificacion", "#academica", "#bloque-reproduccion", "#autoridad"].forEach(function (s) { $(s).hidden = false; });
+    ["#portada", "#bloque-identificacion", "#academica", "#bloque-reproduccion", "#autoridad"].forEach(function (s) { $(s).hidden = false; });
   }
 
   function pintarReproduccion(d) {
