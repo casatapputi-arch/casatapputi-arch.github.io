@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verificación académica — Fundación E.B.A.C.</title>
+<meta name="description" content="Consulte la emisión y el estado de reconocimientos, constancias y diplomas expedidos por Fundación E.B.A.C.">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src https://*.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'">
+<link rel="canonical" href="https://fundacionebac.org/verificacion/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/verificacion/recursos/verificacion.css?v=1">
+<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+</head>
+<body data-pagina="consulta">
+<header class="v-cab">
+  <div class="marco">
+    <a class="logo" href="/"><img src="/assets/images/logo/LOGO_EBAC.png" alt="Fundación E.B.A.C." width="120" height="68"></a>
+    <div class="titulos"><b>Fundación E.B.A.C.</b><span>Sistema Institucional de Verificación Académica</span></div>
+  </div>
+</header>
+
+<main class="marco" id="contenido">
+  <p class="sobre">Verificación académica</p>
+  <h1>Consulta de documentos académicos</h1>
+  <p>Instituciones, empleadores y cualquier persona interesada pueden comprobar que un reconocimiento, constancia o diploma fue emitido por Fundación E.B.A.C. y conocer su estado actual en nuestros registros.</p>
+
+  <section class="tarjeta" aria-labelledby="como-t">
+    <h2 id="como-t">Cómo verificar</h2>
+    <ol class="pasos">
+      <li>Escanee el código QR impreso en el documento. Se abrirá su ficha de verificación.</li>
+      <li>Si no puede escanearlo, escriba abajo el <b>folio</b> y el <b>código de consulta</b> de 8 caracteres que aparecen junto al QR.</li>
+      <li>Compare los datos de la ficha con los del documento que tiene en sus manos.</li>
+    </ol>
+  </section>
+
+  <section class="tarjeta" aria-labelledby="folio-t">
+    <h2 id="folio-t">Consultar por folio</h2>
+    <div id="estado" class="estado cargando" role="status" aria-live="polite"><span class="icono" aria-hidden="true"></span><div><strong>Cargando…</strong></div></div>
+    <form class="consulta" autocomplete="off">
+      <label>Folio <small>Ejemplo: EBAC-XXXX-2025-01-001</small>
+        <input name="folio" required maxlength="30" pattern="[Ee][Bb][Aa][Cc]-[A-Za-z]{2,6}-[0-9]{4}-[0-9]{2}-[0-9]{3}" spellcheck="false" inputmode="text"></label>
+      <label>Código de consulta <small>8 caracteres, impreso junto al código QR</small>
+        <input name="codigo" required minlength="8" maxlength="9" spellcheck="false"></label>
+      <div><button class="btn" type="submit">Consultar</button></div>
+    </form>
+  </section>
+
+  <div class="aviso" role="note">
+    <p>La presente consulta permite verificar la emisión y el estado de un documento académico en los registros de Fundación E.B.A.C. Esta verificación no constituye por sí misma reconocimiento de validez oficial de estudios por parte de una autoridad educativa.</p>
+    <p>Para aclaraciones o para reportar una inconsistencia: <a href="mailto:contacto@fundacionebac.org">contacto@fundacionebac.org</a>.</p>
+  </div>
+</main>
+
+<footer class="v-pie">
+  <div class="marco"><span>© 2026 Fundación E.B.A.C.</span><a href="/">Volver al inicio</a></div>
+</footer>
+<script src="/verificacion/recursos/config.js?v=1"></script>
+<script src="/verificacion/recursos/verificacion.js?v=1"></script>
+</body>
+</html>

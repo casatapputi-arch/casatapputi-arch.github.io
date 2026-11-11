@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verificación de documento académico — Fundación E.B.A.C.</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src https://*.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/verificacion/recursos/verificacion.css?v=1">
+<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+</head>
+<body data-pagina="ficha">
+<header class="v-cab">
+  <div class="marco">
+    <a class="logo" href="/"><img src="/assets/images/logo/LOGO_EBAC.png" alt="Fundación E.B.A.C." width="120" height="68"></a>
+    <div class="titulos"><b>Fundación E.B.A.C.</b><span>Sistema Institucional de Verificación Académica</span></div>
+  </div>
+</header>
+
+<main class="marco" id="contenido">
+  <p class="sobre">Consulta de registro</p>
+  <h1 id="titulo">Verificación de documento académico</h1>
+
+  <div id="estado" class="estado cargando" role="status" aria-live="polite">
+    <span class="icono" aria-hidden="true"></span>
+    <div><strong>Consultando el registro…</strong></div>
+  </div>
+  <noscript><div class="estado noencontrado"><span class="icono">!</span><div><strong>Se requiere JavaScript</strong><p>Active JavaScript en su navegador para consultar el registro.</p></div></div></noscript>
+
+  <section class="tarjeta" id="bloque-identificacion" aria-labelledby="id-t" hidden>
+    <h2 id="id-t">Identificación del documento</h2>
+    <dl class="datos" id="identificacion"></dl>
+  </section>
+
+  <section class="tarjeta" id="academica" hidden></section>
+
+  <section class="tarjeta" id="bloque-reproduccion" aria-labelledby="rep-t" hidden>
+    <h2 id="rep-t">Reproducción del documento</h2>
+    <div class="reproduccion" id="reproduccion"></div>
+  </section>
+
+  <section class="tarjeta" id="autoridad" hidden></section>
+
+  <div class="aviso" role="note">
+    <p>La presente consulta permite verificar la emisión y el estado de un documento académico en los registros de Fundación E.B.A.C. Esta verificación no constituye por sí misma reconocimiento de validez oficial de estudios por parte de una autoridad educativa.</p>
+    <p>Para aclaraciones o para reportar una inconsistencia: <a href="mailto:contacto@fundacionebac.org">contacto@fundacionebac.org</a>.</p>
+  </div>
+</main>
+
+<footer class="v-pie">
+  <div class="marco"><span>© 2026 Fundación E.B.A.C.</span><a href="/verificacion/">Consultar otro documento</a></div>
+</footer>
+<script src="/verificacion/recursos/config.js?v=1"></script>
+<script src="/verificacion/recursos/verificacion.js?v=1"></script>
+</body>
+</html>

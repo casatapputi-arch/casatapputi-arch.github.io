@@ -1,0 +1,116 @@
+/* Sistema Institucional de Verificación Académica — Fundación E.B.A.C.
+   Presentación provisional y discreta: la identidad visual definitiva se integrará después.
+   Paleta: verde institucional profundo, gris piedra e ivory. */
+:root{
+  --verde:#1F3B2D; --verde-2:#2C4F3D; --verde-claro:#E3EBE4;
+  --piedra:#6E716B; --piedra-2:#9A9C95; --linea:#DCD8CD;
+  --ivory:#F8F5EC; --papel:#FFFDF7; --tinta:#1D2420;
+  --ambar:#8A6516; --ambar-f:#F6EDD6; --rojo:#8E3B22; --rojo-f:#F6E3DC;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--tinta);font:400 1rem/1.6 var(--sans)}
+img{max-width:100%;height:auto}
+a{color:var(--verde-2)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.marco{width:min(880px,100% - 32px);margin-inline:auto}
+
+/* Encabezado institucional */
+.v-cab{background:var(--papel);border-bottom:1px solid var(--linea)}
+.v-cab .marco{display:flex;align-items:center;gap:18px;padding-block:14px}
+.v-cab .logo img{height:68px;width:auto;display:block}
+.v-cab .titulos{border-left:1px solid var(--linea);padding-left:18px;line-height:1.25}
+.v-cab .titulos b{display:block;font:400 1.05rem/1.2 var(--serif);color:var(--verde)}
+.v-cab .titulos span{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--piedra)}
+@media (max-width:520px){
+  .v-cab .marco{flex-direction:column;align-items:flex-start;gap:10px}
+  .v-cab .titulos{border-left:0;padding-left:0;border-top:1px solid var(--linea);padding-top:10px;width:100%}
+}
+
+main{padding-block:28px 56px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--verde);line-height:1.2}
+h1{font-size:clamp(1.55rem,4.6vw,2.1rem);margin:0 0 6px}
+h2{font-size:1.25rem;margin:0 0 14px}
+h3{font-size:1.02rem;margin:0 0 4px}
+.sobre{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--piedra);margin:0 0 6px;font-weight:600}
+
+.tarjeta{background:var(--papel);border:1px solid var(--linea);border-radius:10px;padding:22px clamp(18px,4vw,30px);margin-top:18px}
+.tarjeta > :last-child{margin-bottom:0}
+
+/* Estado */
+.estado{display:flex;gap:14px;align-items:flex-start;border-radius:10px;padding:16px 18px;margin-top:18px;border:1px solid}
+.estado .icono{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.estado p{margin:2px 0 0}
+.estado strong{display:block;font-size:1.02rem}
+.estado.vigente{background:var(--verde-claro);border-color:#B9CCBD}
+.estado.vigente .icono{background:var(--verde);color:#fff}
+.estado.corregido{background:var(--verde-claro);border-color:#B9CCBD}
+.estado.corregido .icono{background:var(--verde-2);color:#fff}
+.estado.pendiente,.estado.preparacion{background:var(--ambar-f);border-color:#E3D2A6}
+.estado.pendiente .icono,.estado.preparacion .icono{background:var(--ambar);color:#fff}
+.estado.revocado,.estado.noencontrado{background:var(--rojo-f);border-color:#E5C3B6}
+.estado.revocado .icono,.estado.noencontrado .icono{background:var(--rojo);color:#fff}
+.estado.cargando{background:var(--papel);border-color:var(--linea)}
+.estado.cargando .icono{border:3px solid var(--linea);border-top-color:var(--verde);animation:gira 1s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.estado.cargando .icono{animation:none}}
+
+.aviso-previa{background:var(--tinta);color:#fff;text-align:center;font-size:.85rem;padding:8px 12px;letter-spacing:.02em}
+
+/* Identificación */
+.datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;margin:0}
+.datos div{border-top:1px solid var(--linea);padding-top:10px}
+.datos dt{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--piedra);font-weight:600}
+.datos dd{margin:2px 0 0;font-size:1.02rem;overflow-wrap:anywhere}
+.datos .ancha{grid-column:1 / -1}
+.datos .titular dd{font:400 1.35rem/1.25 var(--serif);color:var(--verde)}
+.datos .folio dd{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;letter-spacing:.02em}
+@media (max-width:560px){.datos{grid-template-columns:1fr}}
+
+/* Información académica */
+.texto p{margin:0 0 12px}
+.areas{list-style:none;padding:0;margin:8px 0 0;counter-reset:a}
+.areas li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:14px 0;border-top:1px solid var(--linea)}
+.areas .num{font:400 1rem/1.4 var(--serif);color:var(--piedra)}
+.areas p{margin:0;color:#3A423D}
+.nota{font-size:.85rem;color:var(--piedra);margin-top:14px}
+
+/* Reproducción del documento */
+.reproduccion{aspect-ratio:11/8.5;border:1.5px dashed var(--piedra-2);border-radius:8px;display:grid;place-items:center;
+  text-align:center;padding:20px;background:repeating-linear-gradient(135deg,transparent 0 12px,rgba(110,113,107,.05) 12px 24px)}
+.reproduccion p{margin:0;color:var(--piedra);max-width:38ch;font-size:.92rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 20px;border-radius:6px;
+  border:0;background:var(--verde);color:#fff;font:600 1rem var(--sans);cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--verde-2)}
+.btn[disabled]{opacity:.6;cursor:progress}
+
+/* Autoridad emisora */
+.firma{border-left:3px solid var(--verde);padding-left:16px}
+.firma p{margin:0}
+.firma .nombre{font:400 1.12rem/1.3 var(--serif);color:var(--verde)}
+.firma .cargo{color:#3A423D}
+
+/* Aviso institucional */
+.aviso{font-size:.88rem;color:#4A514C;border-top:1px solid var(--linea);padding-top:16px;margin-top:26px}
+.aviso p{margin:0 0 8px}
+
+/* Formulario de consulta */
+form.consulta{display:grid;gap:14px;margin-top:6px}
+form.consulta label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
+form.consulta input{font:500 1.05rem var(--sans);padding:12px 14px;border:1px solid var(--piedra-2);border-radius:6px;background:#fff;
+  text-transform:uppercase;width:100%}
+form.consulta small{font-weight:400;color:var(--piedra)}
+.pasos{padding-left:1.2em;margin:0}
+.pasos li{margin-bottom:6px}
+
+.v-pie{border-top:1px solid var(--linea);background:var(--papel);font-size:.85rem;color:var(--piedra)}
+.v-pie .marco{padding-block:18px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+
+@media print{
+  body{background:#fff}
+  .v-cab,.tarjeta,.estado{border-color:#bbb}
+  .btn,.v-pie,.aviso-previa{display:none}
+}
