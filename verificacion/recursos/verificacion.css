@@ -11,7 +11,7 @@
   --papel-textura:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .4  0 0 0 0 .4  0 0 0 0 .38  0 0 0 .09 0'/></filter><rect width='240' height='240' filter='url(%23f)'/></svg>");
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{margin:0;color:var(--tinta);font:400 1.12rem/1.55 var(--garamond);background:var(--papel) var(--papel-textura)}
 img{max-width:100%;height:auto}
 a{color:var(--verde-2)}
