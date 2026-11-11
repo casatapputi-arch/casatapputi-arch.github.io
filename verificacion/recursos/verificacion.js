@@ -24,8 +24,9 @@
     var p = String(iso).slice(0, 10).split("-");
     return parseInt(p[2], 10) + " de " + MESES[parseInt(p[1], 10) - 1] + " de " + p[0];
   }
-  function rpc(nombre, cuerpo) {
-    return fetch(CFG.supabaseUrl.replace(/\/$/, "") + "/rest/v1/rpc/" + nombre, {
+  // Única puerta al registro: la función del servidor «verificacion».
+  function servidor(cuerpo) {
+    return fetch(CFG.supabaseUrl.replace(/\/$/, "") + "/functions/v1/verificacion", {
       method: "POST",
       headers: { "content-type": "application/json", apikey: CFG.anonKey, authorization: "Bearer " + CFG.anonKey },
       body: JSON.stringify(cuerpo),
@@ -119,11 +120,7 @@
     var msg = el("p", { "aria-live": "polite" });
     boton.addEventListener("click", function () {
       boton.disabled = true; msg.textContent = "";
-      fetch(CFG.supabaseUrl.replace(/\/$/, "") + "/functions/v1/verificacion-diploma", {
-        method: "POST",
-        headers: { "content-type": "application/json", apikey: CFG.anonKey, authorization: "Bearer " + CFG.anonKey },
-        body: JSON.stringify({ token: TOKEN }), referrerPolicy: "no-referrer", cache: "no-store"
-      }).then(function (r) { return r.json(); }).then(function (j) {
+      servidor({ accion: "copia", token: TOKEN }).then(function (j) {
         if (j && j.disponible && /^https:\/\//.test(j.url)) window.location.assign(j.url);
         else msg.textContent = "La copia digital no está disponible en este momento.";
       }).catch(function () { msg.textContent = "No fue posible abrir la copia digital. Intente de nuevo."; })
@@ -170,7 +167,7 @@
     if (!configurado) { pintarEstado("preparacion"); return; }
     if (!/^[0-9a-f]{64}$/.test(TOKEN)) { pintarEstado("noencontrado"); return; }
     pintarEstado("cargando");
-    rpc("verificacion_consultar", { p_token: TOKEN }).then(mostrar).catch(function () { pintarEstado("error"); });
+    servidor({ accion: "consultar", token: TOKEN }).then(mostrar).catch(function () { pintarEstado("error"); });
   }
 
   // ───────── Página de consulta por folio ─────────
@@ -184,7 +181,7 @@
       if (!folio || codigo.length !== 8) return;
       var b = form.querySelector("button"); b.disabled = true;
       $("#estado").hidden = false; pintarEstado("cargando");
-      rpc("verificacion_buscar", { p_folio: folio, p_codigo: codigo }).then(function (r) {
+      servidor({ accion: "buscar", folio: folio, codigo: codigo }).then(function (r) {
         if (r && r.encontrado && /^[0-9a-f]{64}$/.test(r.token)) location.assign("/verificacion/documento/#" + r.token);
         else pintarEstado("nofolio");
       }).catch(function () { pintarEstado("error"); }).then(function () { b.disabled = false; });

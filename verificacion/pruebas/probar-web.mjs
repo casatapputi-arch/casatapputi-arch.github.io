@@ -38,17 +38,14 @@ async function pagina(ancho, configurado = true) {
     await p.route("**/verificacion/recursos/config.js*", (r) => r.fulfill({ contentType: "application/javascript",
       body: `window.VERIFICACION_CONFIG={supabaseUrl:"${SB}",anonKey:"llave-publica-ficticia"};` }));
   }
-  await p.route(SB + "/rest/v1/rpc/verificacion_consultar", async (r) => {
-    const { p_token } = r.request().postDataJSON();
-    r.fulfill({ contentType: "application/json", body: JSON.stringify(REG[p_token] || { encontrado: false }) });
+  await p.route(SB + "/functions/v1/verificacion", async (r) => {
+    const e = r.request().postDataJSON();
+    let res = { encontrado: false };
+    if (e.accion === "consultar") res = REG[e.token] || { encontrado: false };
+    if (e.accion === "buscar") res = e.folio === "EBAC-PRUE-2025-01-007" && e.codigo === "ABCD2345" ? { encontrado: true, token: T("b") } : { encontrado: false };
+    if (e.accion === "copia") res = { disponible: true, url: SB + "/storage/v1/object/sign/verificacion-diplomas/x.pdf?token=y" };
+    r.fulfill({ contentType: "application/json", body: JSON.stringify(res) });
   });
-  await p.route(SB + "/rest/v1/rpc/verificacion_buscar", async (r) => {
-    const { p_folio, p_codigo } = r.request().postDataJSON();
-    const hit = p_folio === "EBAC-PRUE-2025-01-007" && p_codigo === "ABCD2345";
-    r.fulfill({ contentType: "application/json", body: JSON.stringify(hit ? { encontrado: true, token: T("b") } : { encontrado: false }) });
-  });
-  await p.route(SB + "/functions/v1/verificacion-diploma", (r) =>
-    r.fulfill({ contentType: "application/json", body: JSON.stringify({ disponible: true, url: SB + "/storage/v1/object/sign/verificacion-diplomas/x.pdf?token=y" }) }));
   await p.route(SB + "/storage/v1/object/sign/**", (r) => r.fulfill({ contentType: "text/plain", body: "copia" }));
   return p;
 }
